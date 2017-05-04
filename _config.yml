@@ -9,7 +9,7 @@ name: Justry
 description: A new Pythoner
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: /justttry/justttry.github.io/blob/master/images/404.jpg?raw=true
+avatar: {{ site.baseurl }}/images/404.jpg
 
 #
 # Flags below are optional
