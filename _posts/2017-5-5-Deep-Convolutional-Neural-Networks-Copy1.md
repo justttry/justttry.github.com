@@ -35,11 +35,11 @@ For instance, if you have set `image_data_format="channels_last"`, then any mode
 
 # VGG16
 
-<img src="imgs/vgg16.png" >
+<img src="https://justttry.github.io/images/vgg16.png" >
 
 # VGG19
 
-<img src="imgs/vgg19.png" >
+<img src="https://justttry.github.io/images/vgg19.png" >
 
 # `keras.applications`
 
@@ -181,7 +181,7 @@ IMAGENET_FOLDER = 'imgs/imagenet'  #in the repo
     apricot_696.jpeg  strawberry_1157.jpeg	strawberry_1189.jpeg
 
 
-<img src="imgs/imagenet/strawberry_1157.jpeg" >
+<img src="https://justttry.github.io/images/strawberry_1157.jpeg" >
 
 
 ```python
@@ -217,7 +217,7 @@ print('Predicted:', decode_predictions(preds))
     NameError: name 'vgg16' is not defined
 
 
-<img src="imgs/imagenet/apricot_696.jpeg" >
+<img src="https://justttry.github.io/images/apricot_696.jpeg" >
 
 
 ```python
@@ -236,7 +236,7 @@ print('Predicted:', decode_predictions(preds))
     Predicted: [[('n07747607', 'orange', 0.87526792), ('n07749582', 'lemon', 0.03620464), ('n07717556', 'butternut_squash', 0.021843448), ('n03937543', 'pill_bottle', 0.0126132), ('n03942813', 'ping-pong_ball', 0.0054204506)]]
 
 
-<img src="imgs/imagenet/apricot_565.jpeg" >
+<img src="https://justttry.github.io/images/apricot_565.jpeg" >
 
 
 ```python
@@ -266,11 +266,11 @@ print('Predicted:', decode_predictions(preds))
 
 # Residual Networks
 
-<img src="imgs/resnet_bb.png" >
+<img src="https://justttry.github.io/images/resnet_bb.png" >
 
 ## ResNet 50
 
-<img src="imgs/resnet34.png" >
+<img src="https://justttry.github.io/images/resnet34.png" >
 
 
 ```python

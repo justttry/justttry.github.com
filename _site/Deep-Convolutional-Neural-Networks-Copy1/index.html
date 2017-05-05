@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deep CNN Models! – Justry – A new Pythoner, student of GOOGLE</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Deep CNN Models
+
+" />
+    <meta property="og:description" content="Deep CNN Models
+
+" />
+    
+    <meta name="author" content="Justry" />
+
+    
+    <meta property="og:title" content="Deep CNN Models!" />
+    <meta property="twitter:title" content="Deep CNN Models!" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/justttry.github.io/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Justry - A new Pythoner, student of GOOGLE" href="/justttry.github.io/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/justttry.github.io/" class="site-avatar"><img src="https://justttry.github.io/images/404.jpg" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/justttry.github.io/">Justry</a></h1>
+            <p class="site-description">A new Pythoner, student of GOOGLE</p>
+          </div>
+
+          <nav>
+            <a href="/justttry.github.io/">Blog</a>
+            <a href="/justttry.github.io/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Deep CNN Models!</h1>
+
+  <div class="entry">
+    <h1 id="deep-cnn-models">Deep CNN Models</h1>
+
+<p>Constructing and training your own ConvNet from scratch can be Hard and a long task.</p>
+
+<p>A common trick used in Deep Learning is to use a <strong>pre-trained</strong> model and finetune it to the specific data it will be used for.</p>
+
+<h2 id="famous-models-with-keras">Famous Models with Keras</h2>
+
+<p>This notebook contains code and reference for the following Keras models (gathered from <a href="">https://github.com/fchollet/keras/tree/master/keras/applications</a>)</p>
+
+<ul>
+  <li>VGG16</li>
+  <li>VGG19</li>
+  <li>ResNet50</li>
+  <li>Inception v3</li>
+  <li>Xception</li>
+  <li>… more to come</li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://arxiv.org/abs/1409.1556">Very Deep Convolutional Networks for Large-Scale Image Recognition</a> - please cite this paper if you use the VGG models in your work.</li>
+  <li><a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a> - please cite this paper if you use the ResNet model in your work.</li>
+  <li><a href="http://arxiv.org/abs/1512.00567">Rethinking the Inception Architecture for Computer Vision</a> - please cite this paper if you use the Inception v3 model in your work.</li>
+</ul>
+
+<p>All architectures are compatible with both TensorFlow and Theano, and upon instantiation the models will be built according to the image dimension ordering set in your Keras configuration file at <code class="highlighter-rouge">~/.keras/keras.json</code>.</p>
+
+<p>For instance, if you have set <code class="highlighter-rouge">image_data_format="channels_last"</code>, then any model loaded from this repository will get built according to the TensorFlow dimension ordering convention, “Width-Height-Depth”.</p>
+
+<h1 id="vgg16">VGG16</h1>
+
+<p><img src="https://justttry.github.io/images/vgg16.png" /></p>
+
+<h1 id="vgg19">VGG19</h1>
+
+<p><img src="https://justttry.github.io/images/vgg19.png" /></p>
+
+<h1 id="kerasapplications"><code class="highlighter-rouge">keras.applications</code></h1>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.applications</span> <span class="kn">import</span> <span class="n">VGG16</span>
+<span class="kn">from</span> <span class="nn">keras.applications.imagenet_utils</span> <span class="kn">import</span> <span class="n">preprocess_input</span><span class="p">,</span> <span class="n">decode_predictions</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Using TensorFlow backend.
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -- Jupyter/IPython way to see documentation</span>
+<span class="c"># please focus on parameters (e.g. include top)</span>
+<span class="n">VGG16</span><span class="err">??</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">help</span><span class="p">(</span><span class="n">VGG16</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Help on function VGG16 in module keras.applications.vgg16:
+
+VGG16(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+    Instantiates the VGG16 architecture.
+    
+    Optionally loads weights pre-trained
+    on ImageNet. Note that when using TensorFlow,
+    for best performance you should set
+    `image_data_format="channels_last"` in your Keras config
+    at ~/.keras/keras.json.
+    
+    The model and the weights are compatible with both
+    TensorFlow and Theano. The data format
+    convention used by the model is the one
+    specified in your Keras config file.
+    
+    # Arguments
+        include_top: whether to include the 3 fully-connected
+            layers at the top of the network.
+        weights: one of `None` (random initialization)
+            or "imagenet" (pre-training on ImageNet).
+        input_tensor: optional Keras tensor (i.e. output of `layers.Input()`)
+            to use as image input for the model.
+        input_shape: optional shape tuple, only to be specified
+            if `include_top` is False (otherwise the input shape
+            has to be `(224, 224, 3)` (with `channels_last` data format)
+            or `(3, 224, 244)` (with `channels_first` data format).
+            It should have exactly 3 inputs channels,
+            and width and height should be no smaller than 48.
+            E.g. `(200, 200, 3)` would be one valid value.
+        pooling: Optional pooling mode for feature extraction
+            when `include_top` is `False`.
+            - `None` means that the output of the model will be
+                the 4D tensor output of the
+                last convolutional layer.
+            - `avg` means that global average pooling
+                will be applied to the output of the
+                last convolutional layer, and thus
+                the output of the model will be a 2D tensor.
+            - `max` means that global max pooling will
+                be applied.
+        classes: optional number of classes to classify images
+            into, only to be specified if `include_top` is True, and
+            if no `weights` argument is specified.
+    
+    # Returns
+        A Keras model instance.
+    
+    # Raises
+        ValueError: in case of invalid argument for `weights`,
+            or invalid input shape.
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">vgg16</span> <span class="o">=</span> <span class="n">VGG16</span><span class="p">(</span><span class="n">include_top</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s">'imagenet'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Downloading data from https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
+
+
+
+---------------------------------------------------------------------------
+
+Exception                                 Traceback (most recent call last)
+
+&lt;ipython-input-4-622c1ff23a67&gt; in &lt;module&gt;()
+----&gt; 1 vgg16 = VGG16(include_top=True, weights='imagenet')
+
+
+/home/z/anaconda2/lib/python2.7/site-packages/keras/applications/vgg16.pyc in VGG16(include_top, weights, input_tensor, input_shape, pooling, classes)
+    162             weights_path = get_file('vgg16_weights_tf_dim_ordering_tf_kernels.h5',
+    163                                     WEIGHTS_PATH,
+--&gt; 164                                     cache_subdir='models')
+    165         else:
+    166             weights_path = get_file('vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5',
+
+
+/home/z/anaconda2/lib/python2.7/site-packages/keras/utils/data_utils.pyc in get_file(fname, origin, untar, md5_hash, file_hash, cache_subdir, hash_algorithm, extract, archive_format, cache_dir)
+    201                             functools.partial(dl_progress, progbar=progbar))
+    202             except URLError as e:
+--&gt; 203                 raise Exception(error_msg.format(origin, e.errno, e.reason))
+    204             except HTTPError as e:
+    205                 raise Exception(error_msg.format(origin, e.code, e.msg))
+
+
+Exception: URL fetch failure on https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5: None -- [Errno 110] Connection timed out
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.utils.vis_utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">plot_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">to_file</span><span class="o">=</span><span class="s">"vgg16.png"</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s">'vgg16.png'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>If you’re wondering <strong>where</strong> this <code class="highlighter-rouge">HDF5</code> files with weights is stored, please take a look at <code class="highlighter-rouge">~/.keras/models/</code></p>
+
+<h4 id="handson-vgg16---pre-trained-weights">HandsOn VGG16 - Pre-trained Weights</h4>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">IMAGENET_FOLDER</span> <span class="o">=</span> <span class="s">'imgs/imagenet'</span>  <span class="c">#in the repo</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="err">!</span><span class="n">ls</span> <span class="n">imgs</span><span class="o">/</span><span class="n">imagenet</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apricot_565.jpeg  apricot_787.jpeg	strawberry_1174.jpeg
+apricot_696.jpeg  strawberry_1157.jpeg	strawberry_1189.jpeg
+</code></pre>
+</div>
+
+<p><img src="https://justttry.github.io/images/strawberry_1157.jpeg" /></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGENET_FOLDER</span><span class="p">,</span> <span class="s">'strawberry_1157.jpeg'</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Input image shape:'</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">vgg16</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Predicted:'</span><span class="p">,</span> <span class="n">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>('Input image shape:', (1, 224, 224, 3))
+
+
+
+---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+&lt;ipython-input-7-49458049ff08&gt; in &lt;module&gt;()
+      9 print('Input image shape:', x.shape)
+     10 
+---&gt; 11 preds = vgg16.predict(x)
+     12 print('Predicted:', decode_predictions(preds))
+
+
+NameError: name 'vgg16' is not defined
+</code></pre>
+</div>
+
+<p><img src="https://justttry.github.io/images/apricot_696.jpeg" /></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGENET_FOLDER</span><span class="p">,</span> <span class="s">'apricot_696.jpeg'</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Input image shape:'</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">vgg16</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Predicted:'</span><span class="p">,</span> <span class="n">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Input image shape: (1, 224, 224, 3)
+Predicted: [[('n07747607', 'orange', 0.87526792), ('n07749582', 'lemon', 0.03620464), ('n07717556', 'butternut_squash', 0.021843448), ('n03937543', 'pill_bottle', 0.0126132), ('n03942813', 'ping-pong_ball', 0.0054204506)]]
+</code></pre>
+</div>
+
+<p><img src="https://justttry.github.io/images/apricot_565.jpeg" /></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGENET_FOLDER</span><span class="p">,</span> <span class="s">'apricot_565.jpeg'</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Input image shape:'</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">vgg16</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Predicted:'</span><span class="p">,</span> <span class="n">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Input image shape: (1, 224, 224, 3)
+Predicted: [[('n07718472', 'cucumber', 0.29338178), ('n07716358', 'zucchini', 0.2383192), ('n04596742', 'wok', 0.042132568), ('n07716906', 'spaghetti_squash', 0.038422), ('n07711569', 'mashed_potato', 0.036552209)]]
+</code></pre>
+</div>
+
+<h1 id="hands-on">Hands On:</h1>
+
+<h3 id="try-to-do-the-same-with-vgg19-model">Try to do the same with VGG19 Model</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># from keras.applications import VGG19</span>
+</code></pre>
+</div>
+
+<h1 id="residual-networks">Residual Networks</h1>
+
+<p><img src="https://justttry.github.io/images/resnet_bb.png" /></p>
+
+<h2 id="resnet-50">ResNet 50</h2>
+
+<p><img src="https://justttry.github.io/images/resnet34.png" /></p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">## from keras.applications import ...</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>
+</code></pre>
+</div>
+
+  </div>
+
+  <div class="date">
+    Written on May  5, 2017
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="https://github.com/justttry/justttry.github.io"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/kerzhao"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
