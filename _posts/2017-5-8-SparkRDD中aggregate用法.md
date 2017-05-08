@@ -4,9 +4,6 @@ layout: post
 title: About Me, A Student of Google!
 ---
 
-## 理解Spark RDD中的aggregate函数
-
-
 ```python
 seqOp = (lambda x, y: (x[0] + y, x[1] + 1))
 combOp = (lambda x, y: (x[0] + y[0], x[1] + y[1]))
