@@ -1,3 +1,8 @@
+﻿
+---
+layout: post
+title: About Me, A Student of Google!
+---
 
 ## 理解Spark RDD中的aggregate函数
 
