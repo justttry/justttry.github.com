@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-10T12:20:00+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, student of GOOGLE</subtitle><entry><title type="html">Workflow</title><link href="http://localhost:4000/justttry.github.io/workflow/" rel="alternate" type="text/html" title="Workflow" /><published>2017-05-10T00:00:00+08:00</published><updated>2017-05-10T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/workflow</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/workflow/">&lt;!DOCTYPE html&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-10T12:22:25+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, student of GOOGLE</subtitle><entry><title type="html">Workflow</title><link href="http://localhost:4000/justttry.github.io/workflow/" rel="alternate" type="text/html" title="Workflow" /><published>2017-05-10T00:00:00+08:00</published><updated>2017-05-10T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/workflow</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/workflow/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;
 &lt;title&gt;workflow&lt;/title&gt;
@@ -11751,9 +11751,7 @@ div#notebook {
 &lt;/div&gt;
 &lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Distributed-Deep-Learning-with-Apache-Spark-and-Keras&quot;&gt;Distributed Deep Learning with Apache Spark and Keras&lt;a class=&quot;anchor-link&quot; href=&quot;#Distributed-Deep-Learning-with-Apache-Spark-and-Keras&quot;&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Joeri Hermans&lt;/strong&gt; (Technical Student, IT-DB-SAS, CERN)&lt;br&gt;
-&lt;em&gt;Departement of Knowledge Engineering&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;Maastricht University, The Netherlands&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Distributed-Deep-Learning-with-Apache-Spark-and-Keras&quot;&gt;Distributed Deep Learning with Apache Spark and Keras&lt;a class=&quot;anchor-link&quot; href=&quot;#Distributed-Deep-Learning-with-Apache-Spark-and-Keras&quot;&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;justry&lt;/strong&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
