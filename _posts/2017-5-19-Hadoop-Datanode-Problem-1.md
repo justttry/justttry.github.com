@@ -1,6 +1,5 @@
 
 # Hadoop Datanode问题排除一
-
 查看datanode的logs--http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log
 
 查找Error关键词，可以看到下列错误信息
