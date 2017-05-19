@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-10T12:22:25+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, student of GOOGLE</subtitle><entry><title type="html">Workflow</title><link href="http://localhost:4000/justttry.github.io/workflow/" rel="alternate" type="text/html" title="Workflow" /><published>2017-05-10T00:00:00+08:00</published><updated>2017-05-10T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/workflow</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/workflow/">&lt;!DOCTYPE html&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-19T11:09:31+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, student of GOOGLE</subtitle><entry><title type="html">Hadoop Datanode Problem</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Datanode-problem/" rel="alternate" type="text/html" title="Hadoop Datanode Problem" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Datanode-problem</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Datanode-problem/">&lt;h1 id=&quot;hadoop-datanode问题排除一&quot;&gt;Hadoop Datanode问题排除一&lt;/h1&gt;
+
+&lt;p&gt;查看datanode的logs–http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log&lt;/p&gt;
+
+&lt;p&gt;查找Error关键词，可以看到下列错误信息&lt;/p&gt;
+
+&lt;p&gt;2017-05-19 02:04:06,480 WARN org.apache.hadoop.yarn.server.nodemanager.DirectoryCollection: Directory /home/ubuntu/Download/hadoop-2.8.0/tmp/nm-local-dir &lt;span style=&quot;color:red&quot;&gt;error&lt;/span&gt;, used space above threshold of &lt;span style=&quot;color:red&quot;&gt;90.0%&lt;/span&gt;, removing from list of valid directories&lt;br /&gt;
+2017-05-19 02:04:06,480 WARN org.apache.hadoop.yarn.server.nodemanager.DirectoryCollection: Directory /home/ubuntu/Download/hadoop-2.8.0/logs/userlogs &lt;span style=&quot;color:red&quot;&gt;error&lt;/span&gt;, used space above threshold of &lt;span style=&quot;color:red&quot;&gt;90.0%&lt;/span&gt;, removing from list of valid directories&lt;br /&gt;
+2017-05-19 02:04:06,481 INFO org.apache.hadoop.yarn.server.nodemanager.LocalDirsHandlerService: Disk(s) failed: 1/1 local-dirs are bad: /home/ubuntu/Download/hadoop-2.8.0/tmp/nm-local-dir; 1/1 log-dirs are bad: /home/ubuntu/Download/hadoop-2.8.0/logs/userlogs&lt;br /&gt;
+2017-05-19 02:04:06,481 ERROR org.apache.hadoop.yarn.server.nodemanager.LocalDirsHandlerService: Most of the disks &lt;span style=&quot;color:red&quot;&gt;failed&lt;/span&gt;. 1/1 local-dirs are bad: /home/ubuntu/Download/hadoop-2.8.0/tmp/nm-local-dir; 1/1 log-dirs are bad: /home/ubuntu/Download/hadoop-2.8.0/logs/userlogs&lt;/p&gt;
+
+&lt;h2 id=&quot;很明显磁盘空间使用量超过了最大阈值&quot;&gt;很明显，磁盘空间使用量超过了最大阈值&lt;/h2&gt;
+
+&lt;p&gt;解决方法：
+在yarn-site.xml中配置：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &amp;lt;property&amp;gt;
+        &amp;lt;name&amp;gt;yarn.nodemanager.disk-health-checker.max-disk-utilization-per-disk-percentage&amp;lt;/name&amp;gt;
+        &amp;lt;value&amp;gt;95.0&amp;lt;/value&amp;gt;
+    &amp;lt;/property&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后重启yarn！ &lt;br /&gt;
+sbin/yarn-daemon.sh stop nodemanager &lt;br /&gt;
+sbin/yarn-daemon.sh start nodemanager &lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Hadoop Datanode问题排除一</summary></entry><entry><title type="html">Workflow</title><link href="http://localhost:4000/justttry.github.io/workflow/" rel="alternate" type="text/html" title="Workflow" /><published>2017-05-10T00:00:00+08:00</published><updated>2017-05-10T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/workflow</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/workflow/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;
 &lt;title&gt;workflow&lt;/title&gt;
