@@ -92,8 +92,3 @@ class Job(object):
         with graph[0].as_default():        
             (... do inference here ...)
  ```
-
-
-```python
-
-```
