@@ -40,12 +40,12 @@ Env:Ubuntu 16.4
 
 Solution:
 
-    1.Right after loading or constructing your model, save the TensorFlow graph:
+1.Right after loading or constructing your model, save the TensorFlow graph:
 
 ```python
         graph = tf.get_default_graph()
 ```
-    2.In the other thread (or perhaps in an asynchronous event handler), do:
+2.In the other thread (or perhaps in an asynchronous event handler), do:
 ```python
         global graph
         with graph.as_default():
