@@ -85,10 +85,15 @@ graph = []
 class Job(object):
 	...
     def run(self):
-    time.sleep(1)
-    while not self.is_finished():
-        time.sleep(10)
-    global graph
-    with graph[0].as_default():        
-        (... do inference here ...)
+        time.sleep(1)
+        while not self.is_finished():
+            time.sleep(10)
+        global graph
+        with graph[0].as_default():        
+            (... do inference here ...)
  ```
+
+
+```python
+
+```
