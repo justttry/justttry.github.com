@@ -1,6 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-19T11:09:31+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, student of GOOGLE</subtitle><entry><title type="html">Hadoop Datanode Problem</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Datanode-problem/" rel="alternate" type="text/html" title="Hadoop Datanode Problem" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Datanode-problem</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Datanode-problem/">&lt;h1 id=&quot;hadoop-datanode问题排除一&quot;&gt;Hadoop Datanode问题排除一&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-19T16:42:48+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, student of GOOGLE</subtitle><entry><title type="html">Hadoop Import Error</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Import-Error/" rel="alternate" type="text/html" title="Hadoop Import Error" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Import-Error</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Import-Error/">&lt;p&gt;错误如下&lt;br /&gt;
+http://slave:8042/node/containerlogs/container_1495180985612_0001_01_000002/ubuntu/stderr?start=-4096&lt;/p&gt;
 
-&lt;p&gt;查看datanode的logs–http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log&lt;/p&gt;
+&lt;p&gt;nd = serializer.loads(command.value)&lt;br /&gt;
+  File “/home/ubuntu/Download/spark-2.1.1/python/pyspark/serializers.py”, line 454, in loads
+    return pickle.loads(obj)&lt;br /&gt;
+  File “/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/workers.py”, line 13, in &lt;module&gt;
+    from distkeras.utils import deserialize_keras_model&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/utils.py&quot;, line 5, in &lt;module&gt;
+    from keras import backend as K&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/__init__.py&quot;, line 3, in &lt;module&gt;
+    from . import activations&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/activations.py&quot;, line 4, in &lt;module&gt;
+    from . import backend as K&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/backend/__init__.py&quot;, line 73, in &lt;module&gt;
+    from .tensorflow_backend import *&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py&quot;, line 1, in &lt;module&gt;
+    import tensorflow as tf&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/tensorflow/__init__.py&quot;, line 24, in &lt;module&gt;
+    from tensorflow.python import *&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/tensorflow/python/__init__.py&quot;, line 54, in &lt;module&gt;
+    from tensorflow.core.framework.graph_pb2 import *&lt;br /&gt;
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/tensorflow/core/framework/graph_pb2.py&quot;, line 6, in &lt;module&gt;&lt;br /&gt;
+    from google.protobuf import descriptor as _descriptor&lt;br /&gt;
+&lt;span style=&quot;color:red&quot;&gt;ImportError&lt;/span&gt;: No module named google.protobuf&lt;br /&gt;&lt;/module&gt;&lt;/module&gt;&lt;/module&gt;&lt;/module&gt;&lt;/module&gt;&lt;/module&gt;&lt;/module&gt;&lt;/module&gt;&lt;/module&gt;&lt;/p&gt;
+
+&lt;p&gt;1.确定需要导入的库是否正确安装&lt;br /&gt;
+2.PYTHONPATH中是否指定路径&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PYTHONPATH=/home/ubuntu/Download/spark-2.1.1/python:/home/ubuntu/anaconda2/lib/python2.7/site-packages
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;There is another possibility, if you are running a python 2.7.11 or other similar versions,&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    sudo pip install protobuf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;is ok. But if you are in a anaconda environment, you should use&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    sudo conda install protobuf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">错误如下 http://slave:8042/node/containerlogs/container_1495180985612_0001_01_000002/ubuntu/stderr?start=-4096</summary></entry><entry><title type="html">Hadoop Datanode Problem</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem/" rel="alternate" type="text/html" title="Hadoop Datanode Problem" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem/">&lt;p&gt;Hadoop Datanode问题排除一&lt;br /&gt;
+查看datanode的logs–http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log&lt;/p&gt;
 
 &lt;p&gt;查找Error关键词，可以看到下列错误信息&lt;/p&gt;
 
@@ -21,11 +59,7 @@
 &lt;/div&gt;
 &lt;p&gt;然后重启yarn！ &lt;br /&gt;
 sbin/yarn-daemon.sh stop nodemanager &lt;br /&gt;
-sbin/yarn-daemon.sh start nodemanager &lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Hadoop Datanode问题排除一</summary></entry><entry><title type="html">Workflow</title><link href="http://localhost:4000/justttry.github.io/workflow/" rel="alternate" type="text/html" title="Workflow" /><published>2017-05-10T00:00:00+08:00</published><updated>2017-05-10T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/workflow</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/workflow/">&lt;!DOCTYPE html&gt;
+sbin/yarn-daemon.sh start nodemanager &lt;br /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Hadoop Datanode问题排除一 查看datanode的logs–http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log</summary></entry><entry><title type="html">Workflow</title><link href="http://localhost:4000/justttry.github.io/workflow/" rel="alternate" type="text/html" title="Workflow" /><published>2017-05-10T00:00:00+08:00</published><updated>2017-05-10T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/workflow</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/workflow/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;
 &lt;title&gt;workflow&lt;/title&gt;

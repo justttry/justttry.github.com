@@ -1,7 +1,6 @@
 
-<h1 id="hadoop-datanode问题排除一">Hadoop Datanode问题排除一</h1>
-
-<p>查看datanode的logs–http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log</p>
+<p>Hadoop Datanode问题排除一<br />
+查看datanode的logs–http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log</p>
 
 <p>查找Error关键词，可以看到下列错误信息</p>
 
@@ -23,7 +22,3 @@
 <p>然后重启yarn！ <br />
 sbin/yarn-daemon.sh stop nodemanager <br />
 sbin/yarn-daemon.sh start nodemanager <br /></p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code>
-</code></pre>
-</div>
