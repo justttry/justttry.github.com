@@ -1,5 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-19T16:42:48+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, student of GOOGLE</subtitle><entry><title type="html">Hadoop Import Error</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Import-Error/" rel="alternate" type="text/html" title="Hadoop Import Error" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Import-Error</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Import-Error/">&lt;p&gt;错误如下&lt;br /&gt;
-http://slave:8042/node/containerlogs/container_1495180985612_0001_01_000002/ubuntu/stderr?start=-4096&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-05-24T16:54:48+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, a student of GOOGLE</subtitle><entry><title type="html">Not An Element Of Tensor Graph</title><link href="http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph/" rel="alternate" type="text/html" title="Not An Element Of Tensor Graph" /><published>2017-05-24T00:00:00+08:00</published><updated>2017-05-24T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph/">&lt;p&gt;错误:&lt;span style=&quot;color:red&quot;&gt;TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor(“Placeholder_2:0”, shape=(500, 500), dtype=float32) is not an element of this graph.&lt;/span&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Exception in thread Thread-2:                                                   
+Traceback (most recent call last):
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/threading.py&quot;, line 801, in __bootstrap_inner
+    self.run()
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/threading.py&quot;, line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/job_deployment.py&quot;, line 281, in run
+    self.read_trained_model()
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/job_deployment.py&quot;, line 207, in read_trained_model
+    self.trained_model = deserialize_keras_model(unpickle_object(f.read()))
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/utils.py&quot;, line 127, in deserialize_keras_model
+    model.set_weights(weights)
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/models.py&quot;, line 700, in set_weights
+    self.model.set_weights(weights)
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/engine/topology.py&quot;, line 1973, in set_weights
+    K.batch_set_value(tuples)
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py&quot;, line 2153, in batch_set_value
+    get_session().run(assign_ops, feed_dict=feed_dict)
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py&quot;, line 778, in run
+    run_metadata_ptr)
+  File &quot;/home/ubuntu/anaconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py&quot;, line 933, in _run
+    + e.args[0])
+TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor(&quot;Placeholder_2:0&quot;, shape=(500, 500), dtype=float32) is not an element of this graph.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;错误原因：多线程、分布式环境下，恢复Model时的Tensor Graph和生成Model时不同。&lt;/p&gt;
+
+&lt;p&gt;解决方法：将生成Model的Tesor Graph复制到恢复线程(或者DataNode)中。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Env:Ubuntu 16.4
+    spark
+    keras
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Solution:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.Right after loading or constructing your model, save the TensorFlow graph:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_default_graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2.In the other thread (or perhaps in an asynchronous event handler), do: ```python
+    global graph
+    with graph.as_default():
+        (... do inference here ...) ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I learned about this from https://github.com/fchollet/keras/issues/2397&lt;/p&gt;
+
+&lt;h2 id=&quot;具体操作如下&quot;&gt;具体操作如下:&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;## main.py&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input_shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb_features&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,)))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dropout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb_classes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'softmax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;deployment&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_default_graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;## deployment.py&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_finished&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;global&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;        
+        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inference&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">错误:TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor(“Placeholder_2:0”, shape=(500, 500), dtype=float32) is not an element of this graph.</summary></entry><entry><title type="html">Hadoop Import Error</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Import-Error/" rel="alternate" type="text/html" title="Hadoop Import Error" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Import-Error</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Import-Error/">&lt;p&gt;错误如下&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;nd = serializer.loads(command.value)&lt;br /&gt;
   File “/home/ubuntu/Download/spark-2.1.1/python/pyspark/serializers.py”, line 454, in loads
@@ -37,7 +129,7 @@ http://slave:8042/node/containerlogs/container_1495180985612_0001_01_000002/ubun
 &lt;p&gt;is ok. But if you are in a anaconda environment, you should use&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    sudo conda install protobuf
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">错误如下 http://slave:8042/node/containerlogs/container_1495180985612_0001_01_000002/ubuntu/stderr?start=-4096</summary></entry><entry><title type="html">Hadoop Datanode Problem</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem/" rel="alternate" type="text/html" title="Hadoop Datanode Problem" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem/">&lt;p&gt;Hadoop Datanode问题排除一&lt;br /&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">错误如下</summary></entry><entry><title type="html">Hadoop Datanode Problem</title><link href="http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem/" rel="alternate" type="text/html" title="Hadoop Datanode Problem" /><published>2017-05-19T00:00:00+08:00</published><updated>2017-05-19T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Hadoop-Datanode-Problem/">&lt;p&gt;Hadoop Datanode问题排除一&lt;br /&gt;
 查看datanode的logs–http://slave:50075/logs/yarn-ubuntu-nodemanager-ip-172-31-0-241.log&lt;/p&gt;
 
 &lt;p&gt;查找Error关键词，可以看到下列错误信息&lt;/p&gt;

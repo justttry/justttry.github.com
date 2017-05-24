@@ -1,0 +1,95 @@
+
+<p>错误:<span style="color:red">TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor(“Placeholder_2:0”, shape=(500, 500), dtype=float32) is not an element of this graph.</span></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Exception in thread Thread-2:                                                   
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda2/lib/python2.7/threading.py", line 801, in __bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda2/lib/python2.7/threading.py", line 754, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/job_deployment.py", line 281, in run
+    self.read_trained_model()
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/job_deployment.py", line 207, in read_trained_model
+    self.trained_model = deserialize_keras_model(unpickle_object(f.read()))
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/distkeras/utils.py", line 127, in deserialize_keras_model
+    model.set_weights(weights)
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/models.py", line 700, in set_weights
+    self.model.set_weights(weights)
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/engine/topology.py", line 1973, in set_weights
+    K.batch_set_value(tuples)
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py", line 2153, in batch_set_value
+    get_session().run(assign_ops, feed_dict=feed_dict)
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 778, in run
+    run_metadata_ptr)
+  File "/home/ubuntu/anaconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 933, in _run
+    + e.args[0])
+TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor("Placeholder_2:0", shape=(500, 500), dtype=float32) is not an element of this graph.
+
+</code></pre>
+</div>
+
+<p>错误原因：多线程、分布式环境下，恢复Model时的Tensor Graph和生成Model时不同。</p>
+
+<p>解决方法：将生成Model的Tesor Graph复制到恢复线程(或者DataNode)中。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Env:Ubuntu 16.4
+    spark
+    keras
+</code></pre>
+</div>
+
+<p>Solution:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1.Right after loading or constructing your model, save the TensorFlow graph:
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>        <span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span>
+</code></pre>
+</div>
+<div class="highlighter-rouge"><pre class="highlight"><code>2.In the other thread (or perhaps in an asynchronous event handler), do: ```python
+    global graph
+    with graph.as_default():
+        (... do inference here ...) ```
+</code></pre>
+</div>
+
+<p>I learned about this from https://github.com/fchollet/keras/issues/2397</p>
+
+<h2 id="具体操作如下">具体操作如下:</h2>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">## main.py</span>
+<span class="o">...</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="o">...</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">nb_features</span><span class="p">,)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.4</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s">'softmax'</span><span class="p">))</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">deployment</span> <span class="kn">import</span> <span class="n">graph</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">## deployment.py</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">class</span> <span class="nc">Job</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="o">...</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_finished</span><span class="p">():</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">global</span> <span class="n">graph</span>
+    <span class="k">with</span> <span class="n">graph</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>        
+        <span class="p">(</span><span class="o">...</span> <span class="n">do</span> <span class="n">inference</span> <span class="n">here</span> <span class="o">...</span><span class="p">)</span>
+</code></pre>
+</div>
