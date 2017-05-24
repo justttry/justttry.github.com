@@ -40,17 +40,17 @@ TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor("Placeholder_
 
 <p>Solution:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>1.Right after loading or constructing your model, save the TensorFlow graph:
+<p>1.Right after loading or constructing your model, save the TensorFlow graph:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span>
 </code></pre>
 </div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code>        <span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span>
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>2.In the other thread (or perhaps in an asynchronous event handler), do: ```python
-    global graph
-    with graph.as_default():
-        (... do inference here ...) ```
+<p>2.In the other thread (or perhaps in an asynchronous event handler), do:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">global</span> <span class="n">graph</span>
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+    <span class="p">(</span><span class="o">...</span> <span class="n">do</span> <span class="n">inference</span> <span class="n">here</span> <span class="o">...</span><span class="p">)</span>
 </code></pre>
 </div>
 
@@ -85,11 +85,11 @@ TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor("Placeholder_
 <span class="k">class</span> <span class="nc">Job</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 	<span class="o">...</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_finished</span><span class="p">():</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="k">global</span> <span class="n">graph</span>
-    <span class="k">with</span> <span class="n">graph</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>        
-        <span class="p">(</span><span class="o">...</span> <span class="n">do</span> <span class="n">inference</span> <span class="n">here</span> <span class="o">...</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_finished</span><span class="p">():</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">global</span> <span class="n">graph</span>
+        <span class="k">with</span> <span class="n">graph</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>        
+            <span class="p">(</span><span class="o">...</span> <span class="n">do</span> <span class="n">inference</span> <span class="n">here</span> <span class="o">...</span><span class="p">)</span>
 </code></pre>
 </div>
