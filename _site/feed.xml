@@ -1,5 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-06-02T18:13:57+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, a student of GOOGLE</subtitle><entry><title type="html">使用wingide进行远程调试</title><link href="http://localhost:4000/justttry.github.io/%E4%BD%BF%E7%94%A8Wingide%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/" rel="alternate" type="text/html" title="使用wingide进行远程调试" /><published>2017-06-02T00:00:00+08:00</published><updated>2017-06-02T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/%E4%BD%BF%E7%94%A8Wingide%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/%E4%BD%BF%E7%94%A8Wingide%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/">&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/Wingide_remote_debug.png&quot; /&gt;
-&lt;img src=&quot;images/Wingide_remote_debug.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Not An Element Of Tensor Graph</title><link href="http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph/" rel="alternate" type="text/html" title="Not An Element Of Tensor Graph" /><published>2017-05-24T00:00:00+08:00</published><updated>2017-05-24T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph/">&lt;p&gt;错误:&lt;span style=&quot;color:red&quot;&gt;TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor(“Placeholder_2:0”, shape=(500, 500), dtype=float32) is not an element of this graph.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-06-02T18:29:07+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, a student of GOOGLE</subtitle><entry><title type="html">使用wingide进行远程调试</title><link href="http://localhost:4000/justttry.github.io/%E4%BD%BF%E7%94%A8Wingide%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/" rel="alternate" type="text/html" title="使用wingide进行远程调试" /><published>2017-06-02T00:00:00+08:00</published><updated>2017-06-02T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/%E4%BD%BF%E7%94%A8Wingide%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/%E4%BD%BF%E7%94%A8Wingide%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/">&lt;h3 id=&quot;wingide远程调试架构如下&quot;&gt;wingide远程调试架构如下&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/Wingide_remote_debug.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;See also the Manually Configured Remote Debugging Example.&lt;/p&gt;
+
+&lt;p&gt;(1) First set up Wing to successfully accept connections from another process within the same machine, as described in section Importing the Debugger. You can use any Python script for testing this until you have values that work.&lt;/p&gt;
+
+&lt;p&gt;(2) Optionally, alter the Server Host preference to the name or IP address of the network interface on which the IDE listens for debug connections. The default server is None, which indicates that the IDE should listen on all the valid network interfaces on the host.&lt;/p&gt;
+
+&lt;p&gt;(3) Optionally, alter the preference Server Port to the TCP/IP port on which the IDE should listen for debug connections. This value may need to be changed if multiple copies of Wing are running on the same host.&lt;/p&gt;
+
+&lt;p&gt;(4) Set the Allowed Hosts preference to include the host on which the debug process will be run. For security purposes, Wing will reject connections if the host isn’t included here.&lt;/p&gt;
+
+&lt;p&gt;(5) Configure any firewall on the system that Wing is running on to accept a connection on the server port from the system that the debug process will run on.&lt;/p&gt;
+
+&lt;p&gt;(6) Next install Wing on the machine on which you plan to run your debug program. Creating an entire Wing installation is the easiest approach. Alternatives are to copy only the debug server code out of a Wing installation on the same type of OS or to compile the debugger core from source code. For details, see Manually Installing the Debugger Core.&lt;/p&gt;
+
+&lt;p&gt;(7) Next, transfer copies of all your debug code so that the source files are available on the host where Wing will be running and at least the *.pyc files are available on the debug host.&lt;/p&gt;
+
+&lt;p&gt;During debugging, the client and server copies of your source files must match or the debugger will either fail to stop at breakpoints or stop at the wrong place, and stepping through code may not work properly.&lt;/p&gt;
+
+&lt;p&gt;You will need to use Samba, FTP, NFS, or some other file sharing or file transfer mechanism to keep the remote files up to date as you edit them in Wing.&lt;/p&gt;
+
+&lt;p&gt;If files appear in different disk locations on the two machines, you will also need to set up a file location map, as described in Manually Configured File Location Maps.&lt;/p&gt;
+
+&lt;p&gt;(8) On your debug host, copy wingdbstub.py into the same directory as your source files and import it in your Python source as described in Debugging Externally Launched Code.&lt;/p&gt;
+
+&lt;p&gt;(9) If you didn’t copy wingdbstub.py out of a complete installation of Wing on the debug host, or if working on OS X or with the zip file or tar file installations of Wing, you will need to set WINGHOME in your copy to match the location where you have copied the debug server code on your debug host.&lt;/p&gt;
+
+&lt;p&gt;(10) In wingdbstub.py on your debug host, set kWingHostPort. The host in this value must be the IP address of the machine where Wing is running. The port must match the port configured with the Server Port preference on the host where Wing is running.&lt;/p&gt;
+
+&lt;p&gt;(11) Then restart Wing and try running your program on the debug host. You should see the Wing debugger status icon change to indicate that a debug process has attached.&lt;/p&gt;
+
+&lt;p&gt;If you have problems making this work, try setting kLogFile variable in wingdbstub.py for log additional diagnostic information.&lt;/p&gt;
+
+&lt;h3 id=&quot;下面有一个使用windows-wing来调试linux代码的例子&quot;&gt;下面有一个使用windows wing来调试linux代码的例子&lt;/h3&gt;
+
+&lt;p&gt;On the Windows machine, the following preferences must be specified:&lt;/p&gt;
+
+&lt;p&gt;(1)Accept Debug Connections should be checked &lt;br /&gt;
+(2)Server Host should be set to All Interfaces (this is the default)&lt;br /&gt;
+(3)Server Port should be set to 50005 (this is the default)&lt;br /&gt;
+(4)Allowed Hosts should be altered by adding 192.168.1.200&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;On the Linux/Unix machine, the following value is needed in wingdbstub.py:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/wingide_configure.png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">wingide远程调试架构如下</summary></entry><entry><title type="html">Not An Element Of Tensor Graph</title><link href="http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph/" rel="alternate" type="text/html" title="Not An Element Of Tensor Graph" /><published>2017-05-24T00:00:00+08:00</published><updated>2017-05-24T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/not-an-element-of-Tensor-graph/">&lt;p&gt;错误:&lt;span style=&quot;color:red&quot;&gt;TypeError: Cannot interpret feed_dict key as Tensor: Tensor Tensor(“Placeholder_2:0”, shape=(500, 500), dtype=float32) is not an element of this graph.&lt;/span&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Exception in thread Thread-2:                                                   
 Traceback (most recent call last):
