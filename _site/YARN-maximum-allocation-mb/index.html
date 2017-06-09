@@ -1,0 +1,23 @@
+
+<h3 id="报错如下">报错如下：</h3>
+<p><span style="color:red">[Stage 2:=============================&gt;                             (1 + 1) / 2]17/06/09 06:48:54 WARN cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: Container marked as failed: container_1496990795119_0001_02_000002 on host: slave1. Exit status: -1000. Diagnostics: Could not obtain block: BP-1759922210-172.31.7.59-1496717496059:blk_1073744745_3921 file=/user/ubuntu/.sparkStaging/application_1496990795119_0001/py4j-0.10.4-src.zip
+org.apache.hadoop.hdfs.BlockMissingException: Could not obtain block: BP-1759922210-172.31.7.59-1496717496059:blk_1073744745_3921 file=/user/ubuntu/.sparkStaging/application_1496990795119_0001/py4j-0.10.4-src.zip </span></p>
+
+<p>The problem is more likely a lack of correlation between Spark’s request for RAM (driver memory + executor memory) and Yarn’s container sizing configuration. Yarn settings determine min/max container sizes, and should be based on available physical memory, number of nodes, etc. As a rule of thumb, try making the minimum Yarn container size 1.5 times the size of the requested driver/executor memory (in this case, 1.5 GB).</p>
+
+<h3 id="修改设置如下">修改设置如下：</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    &lt;property&gt;  
+        &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt;
+        &lt;value&gt;64512&lt;/value&gt;
+    &lt;/property&gt; 
+    &lt;property&gt;
+        &lt;name&gt;yarn.scheduler.maximum-allocation-mb&lt;/name&gt;
+        &lt;value&gt;51200&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.resource.cpu-vcores&lt;/name&gt;
+        &lt;value&gt;6&lt;/value&gt;
+    &lt;/property&gt; 
+</code></pre>
+</div>
