@@ -15,3 +15,18 @@
 
 <p>The replication count for files submitted as part of your job is controlled by the parameter mapreduce.client.submit.file.replication or mapred.submit.replication in mapred-site.xml. You can adjust this down for clusters that are smaller than 10 nodes.</p>
 
+<p>修改设置如下：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.client.submit.file.replication&lt;/name&gt;
+        &lt;value&gt;2&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+</div>
+
+<p>依然不起作用</p>
