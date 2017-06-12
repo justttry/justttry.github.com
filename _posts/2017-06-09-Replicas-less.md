@@ -31,3 +31,5 @@ The replication count for files submitted as part of your job is controlled by t
 ```
 
 依然不起作用
+
+<span style="color:green">重新格式化namenode之后问题消失。可能是由于当前hadoop节点和之前的配置不同导致的。</span>
