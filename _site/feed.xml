@@ -1,4 +1,282 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-06-12T13:46:48+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, a student of GOOGLE</subtitle><entry><title type="html">Yarn Maximum Allocation Mb</title><link href="http://localhost:4000/justttry.github.io/YARN-maximum-allocation-mb/" rel="alternate" type="text/html" title="Yarn Maximum Allocation Mb" /><published>2017-06-09T00:00:00+08:00</published><updated>2017-06-09T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/YARN-maximum-allocation-mb</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/YARN-maximum-allocation-mb/">&lt;h3 id=&quot;报错如下&quot;&gt;报错如下：&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/justttry.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/justttry.github.io/" rel="alternate" type="text/html" /><updated>2017-06-13T15:14:49+08:00</updated><id>http://localhost:4000/justttry.github.io/</id><title type="html">Justry</title><subtitle>A new Pythoner, a student of GOOGLE</subtitle><entry><title type="html">Hive安装</title><link href="http://localhost:4000/justttry.github.io/HIVE%E5%AE%89%E8%A3%85/" rel="alternate" type="text/html" title="Hive安装" /><published>2017-06-13T00:00:00+08:00</published><updated>2017-06-13T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/HIVE%E5%AE%89%E8%A3%85</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/HIVE%E5%AE%89%E8%A3%85/">&lt;h1 id=&quot;1安装java&quot;&gt;1.安装JAVA&lt;/h1&gt;
+
+&lt;h2 id=&quot;a安装过程省略&quot;&gt;(a)安装过程省略&lt;/h2&gt;
+&lt;p&gt;过程参考&lt;a href=&quot;https://www.tutorialspoint.com/hive/hive_installation.htm&quot;&gt;这里&lt;/a&gt;, 版本略旧。&lt;/p&gt;
+
+&lt;h2 id=&quot;b查看安装版本&quot;&gt;(b)查看安装版本&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java –version
+    
+    java version &lt;span class=&quot;s2&quot;&gt;&quot;1.8.0_131&quot;&lt;/span&gt;
+    Java&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; SE Runtime Environment &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;build 1.8.0_131-b11&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Java HotSpot&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 64-Bit Server VM &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;build 25.131-b11, mixed mode
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;2安装hadoop&quot;&gt;2.安装HADOOP&lt;/h1&gt;
+
+&lt;h2 id=&quot;a安装过程省略-1&quot;&gt;(a)安装过程省略&lt;/h2&gt;
+
+&lt;h2 id=&quot;b查看安装版本-1&quot;&gt;(b)查看安装版本&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;hadoop version
+    
+    Hadoop 2.8.0
+    Subversion https://git-wip-us.apache.org/repos/asf/hadoop.git -r 91f2b7a13d1e97be65db92ddabc627cc29ac0009
+    Compiled by jdu on 2017-03-17T04:12Z
+    Compiled with protoc 2.5.0
+    From &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;with checksum 60125541c2b3e266cbf3becc5bda666
+    This &lt;span class=&quot;nb&quot;&gt;command &lt;/span&gt;was run using /home/ubuntu/Download/hadoop-2.8.0/share/hadoop/common/hadoop-common-2.8.0.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;c-启动yarn集群&quot;&gt;(c) 启动YARN集群&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ $HADOOP_HOME&lt;/span&gt;/sbin/start-dfs.sh
+    &lt;span class=&quot;nv&quot;&gt;$ $HADOOP_HOME&lt;/span&gt;/sbin/start-yarn.sh
+    &lt;span class=&quot;nv&quot;&gt;$ $HADOOP_HOME&lt;/span&gt;/sbin/start-all.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;3安装spark&quot;&gt;3.安装SPARK&lt;/h1&gt;
+
+&lt;h2 id=&quot;a下载spark源码省略&quot;&gt;(a).下载SPARK源码，省略&lt;/h2&gt;
+
+&lt;h2 id=&quot;b编译&quot;&gt;(b).编译&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;spark-2.1.1/
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./build/mvn -Phadoop-provided -Pyarn -Phadoop-2.7 -Phive -Phive-thriftserver -DskipTests clean package
+    
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Reactor Summary:
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] 
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Parent POM ........................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 13.663 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Tags ................................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 17.955 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Sketch ............................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  6.808 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Networking ........................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 11.276 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Shuffle Streaming Service ............ SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  5.935 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Unsafe ............................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  9.713 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Launcher ............................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 14.214 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Core ................................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;02:28 min]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project ML Local Library ..................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 11.149 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project GraphX ............................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 13.799 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Streaming ............................ SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 32.115 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Catalyst ............................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;01:20 min]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project SQL .................................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;01:45 min]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project ML Library ........................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;01:15 min]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Tools ................................ SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  1.924 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Hive ................................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;01:00 min]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project REPL ................................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  5.636 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project YARN Shuffle Service ................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  8.612 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project YARN ................................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 15.541 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Hive Thrift Server ................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 29.356 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Assembly ............................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 10.835 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project External Flume Sink .................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  7.775 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project External Flume ....................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  9.472 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project External Flume Assembly .............. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  2.272 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Integration &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Kafka 0.8 .................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 23.306 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Examples ............................. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 18.441 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project External Kafka Assembly .............. SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  4.008 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Integration &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Kafka 0.10 ................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 11.553 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Integration &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Kafka 0.10 Assembly .......... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  3.748 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Kafka 0.10 Source &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Structured Streaming ......... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  9.846 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Spark Project Java 8 Tests ......................... SUCCESS &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  5.179 s]
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] ------------------------------------------------------------------------
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] BUILD SUCCESS
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] ------------------------------------------------------------------------
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Total &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;: 12:59 min
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Finished at: 2017-06-13T06:11:22+00:00
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Final Memory: 96M/1352M
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] ------------------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;4安装hive&quot;&gt;4.安装HIVE&lt;/h1&gt;
+
+&lt;h2 id=&quot;a安装hive&quot;&gt;(a).安装HIVE&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;wget https://archive.apache.org/dist/hive/hive-1.2.1/apache-hive-1.2.1-bin.tar.gz
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;tar zxvf apache-hive-1.2.1-bin.tar.gz
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ls
+apache-hive-1.2.1-bin  apache-hive-1.2.1-bin.tar.gz
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo mv apache-hive-1.2.1-bin /usr/local/hive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;注意版本，根据SPARK的版本选择HIVE版本，否则会出错。&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;b配置hive环境&quot;&gt;(b).配置HIVE环境&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi .bashrc
+    
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HIVE_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/hive
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$HIVE_HOME&lt;/span&gt;/bin
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CLASSPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CLASSPATH&lt;/span&gt;:/usr/local/Hadoop/lib/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;:.
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CLASSPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CLASSPATH&lt;/span&gt;:/usr/local/hive/lib/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;:.
+    
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;c配置hive&quot;&gt;(c).配置HIVE&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HIVE_HOME&lt;/span&gt;/conf
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cp hive-env.sh.template hive-env.sh
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi hive-env.sh
+    
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;HADOOP_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/hadoop
+    
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cp hive-default.xml.template hive-site.xml
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi hive-site.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;配置服务器端口,介绍在&lt;a href=&quot;https://cwiki.apache.org/confluence/display/Hive/HiveDerbyServerMode&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;property&amp;gt;
+    &amp;lt;name&amp;gt;javax.jdo.option.ConnectionURL&amp;lt;/name&amp;gt;
+    &amp;lt;value&amp;gt;jdbc:derby://localhost:1527/metastore_db;create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; &amp;lt;/value&amp;gt;
+    &amp;lt;description&amp;gt;JDBC connect string &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;a JDBC metastore &amp;lt;/description&amp;gt;
+  &amp;lt;/property&amp;gt;
+  &amp;lt;property&amp;gt;
+    &amp;lt;name&amp;gt;javax.jdo.option.ConnectionDriverName&amp;lt;/name&amp;gt;
+    &amp;lt;value&amp;gt;org.apache.derby.jdbc.ClientDriver&amp;lt;/value&amp;gt;
+    &amp;lt;description&amp;gt;Driver class name &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;a JDBC metastore&amp;lt;/description&amp;gt;
+  &amp;lt;/property&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在hive-site.xml配置的开始行添加下列代码，原因在&lt;a href=&quot;https://stackoverflow.com/questions/28536340/hive-shell-not-opening-when-i-have-hive-site-xml&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;property&amp;gt;
+    &amp;lt;name&amp;gt;system:java.io.tmpdir&amp;lt;/name&amp;gt;
+    &amp;lt;value&amp;gt;/tmp/hive/java&amp;lt;/value&amp;gt;
+  &amp;lt;/property&amp;gt;
+  &amp;lt;property&amp;gt;
+    &amp;lt;name&amp;gt;system:user.name&amp;lt;/name&amp;gt;
+    &amp;lt;value&amp;gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.name&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&amp;lt;/value&amp;gt;
+  &amp;lt;/property&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi jpox.properties
+    
+    javax.jdo.PersistenceManagerFactoryClass&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;org.jpox.PersistenceManagerFactoryImpl
+    org.jpox.autoCreateSchema&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false
+    &lt;/span&gt;org.jpox.validateTables&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false
+    &lt;/span&gt;org.jpox.validateColumns&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false
+    &lt;/span&gt;org.jpox.validateConstraints&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false
+    &lt;/span&gt;org.jpox.storeManagerType&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;rdbms
+    org.jpox.autoCreateSchema&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+    &lt;/span&gt;org.jpox.autoStartMechanismMode&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;checked
+    org.jpox.transactionIsolation&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;read_committed
+    javax.jdo.option.DetachAllOnCommit&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+    &lt;/span&gt;javax.jdo.option.NontransactionalRead&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+    &lt;/span&gt;javax.jdo.option.ConnectionDriverName&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;org.apache.derby.jdbc.ClientDriver
+    javax.jdo.option.ConnectionURL&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;jdbc:derby://localhost:1527/metastore_db;create&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+    &lt;/span&gt;javax.jdo.option.ConnectionUserName&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;APP
+    javax.jdo.option.ConnectionPassword&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mine
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;5安装derby&quot;&gt;5.安装DERBY&lt;/h1&gt;
+
+&lt;h2 id=&quot;a安装derby&quot;&gt;(a).安装DERBY&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget http://archive.apache.org/dist/db/derby/db-derby-10.10.2.0/db-derby-10.10.2.0-bin.tar.gz
+    版本和HIVE保持一致
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;tar zxvf db-derby-10.10.2.0-bin.tar.gz
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls
+    db-derby-10.10.2.0-bin db-derby-10.10.2.0-bin.tar.gz
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo mv db-derby-10.10.2.0-bin /usr/local/derby
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;b配置derby环境&quot;&gt;(b).配置DERBY环境&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi .bashrc
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DERBY_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/derby
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$DERBY_HOME&lt;/span&gt;/bin
+    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CLASSPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CLASSPATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$DERBY_HOME&lt;/span&gt;/lib/derby.jar:&lt;span class=&quot;nv&quot;&gt;$DERBY_HOME&lt;/span&gt;/lib/derbytools.jar
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .bashrc
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cp &lt;span class=&quot;nv&quot;&gt;$DERBY_HOME&lt;/span&gt;/lib/derbyclient.jar &lt;span class=&quot;nv&quot;&gt;$HIVE_HOME&lt;/span&gt;/lib/
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cp &lt;span class=&quot;nv&quot;&gt;$DERBY_HOME&lt;/span&gt;/lib/derbytools.jar &lt;span class=&quot;nv&quot;&gt;$HIVE_HOME&lt;/span&gt;/lib/
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir &lt;span class=&quot;nv&quot;&gt;$DERBY_HOME&lt;/span&gt;/data
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;6验证hive&quot;&gt;6.验证HIVE&lt;/h1&gt;
+
+&lt;h2 id=&quot;a验证derby&quot;&gt;(a).验证DERBY&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java org.apache.derby.tools.sysinfo
+    
+    ------------------ Java Information ------------------
+    Java Version:    1.8.0_131
+    Java Vendor:     Oracle Corporation
+    Java home:       /usr/lib/jvm/java-8-oracle/jre
+    Java classpath:  :/usr/local/Hadoop/lib/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;:.:/usr/local/hive/lib/calcite-core-1.2.0-incubating.jar::/usr/local/derby/lib/derbytools.jar
+    OS name:         Linux
+    OS architecture: amd64
+    OS version:      4.4.0-1018-aws
+    Java user name:  ubuntu
+    Java user home:  /home/ubuntu
+    Java user dir:   /home/ubuntu
+    java.specification.name: Java Platform API Specification
+    java.specification.version: 1.8
+    java.runtime.version: 1.8.0_131-b11
+    --------- Derby Information --------
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/usr/local/hive/lib/derby-10.10.2.0.jar] 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/usr/local/hive/lib/derbytools.jar] 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/usr/local/hive/lib/derbyclient.jar] 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/usr/local/hive/lib/hive-jdbc-1.2.1-standalone.jar] 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/usr/local/derby/lib/derby.jar] 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/usr/local/derby/lib/derbytools.jar] 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    ------------------------------------------------------
+    ----------------- Locale Information -----------------
+    Current Locale :  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;English/United States &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;en_US]]
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;cs]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;de_DE]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;es]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;fr]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;hu]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;it]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ja_JP]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ko_KR]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;pl]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;pt_BR]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ru]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;zh_CN]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Found support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;locale: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;zh_TW]
+         version: 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    ------------------------------------------------------
+    ------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;b启动yarn集群&quot;&gt;(b).启动YARN集群&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ $HADOOP_HOME&lt;/span&gt;/sbin/start-dfs.sh
+    &lt;span class=&quot;nv&quot;&gt;$ $HADOOP_HOME&lt;/span&gt;/sbin/start-yarn.sh
+    &lt;span class=&quot;nv&quot;&gt;$ $HADOOP_HOME&lt;/span&gt;/sbin/start-all.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;c启动derby服务器&quot;&gt;(c).启动DERBY服务器&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;startNetworkServer
+    Tue Jun 13 06:51:35 UTC 2017 : Security manager installed using the Basic server security policy.
+    Tue Jun 13 06:51:35 UTC 2017 : Apache Derby Network Server - 10.10.2.0 - &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1582446&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; started and ready to accept connections on port 1527
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;b启动hive&quot;&gt;(b).启动HIVE&lt;/h2&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;hive
+    Logging initialized using configuration &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;jar:file:/usr/local/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+    hive&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">1.安装JAVA</summary></entry><entry><title type="html">Yarn Maximum Allocation Mb</title><link href="http://localhost:4000/justttry.github.io/YARN-maximum-allocation-mb/" rel="alternate" type="text/html" title="Yarn Maximum Allocation Mb" /><published>2017-06-09T00:00:00+08:00</published><updated>2017-06-09T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/YARN-maximum-allocation-mb</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/YARN-maximum-allocation-mb/">&lt;h3 id=&quot;报错如下&quot;&gt;报错如下：&lt;/h3&gt;
 &lt;p&gt;&lt;span style=&quot;color:red&quot;&gt;[Stage 2:=============================&amp;gt;                             (1 + 1) / 2]17/06/09 06:48:54 WARN cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: Container marked as failed: container_1496990795119_0001_02_000002 on host: slave1. Exit status: -1000. Diagnostics: Could not obtain block: BP-1759922210-172.31.7.59-1496717496059:blk_1073744745_3921 file=/user/ubuntu/.sparkStaging/application_1496990795119_0001/py4j-0.10.4-src.zip
 org.apache.hadoop.hdfs.BlockMissingException: Could not obtain block: BP-1759922210-172.31.7.59-1496717496059:blk_1073744745_3921 file=/user/ubuntu/.sparkStaging/application_1496990795119_0001/py4j-0.10.4-src.zip &lt;/span&gt;&lt;/p&gt;
 
@@ -38979,275 +39257,4 @@ AddN: /job:localhost/replica:0/task:0/cpu:0
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</content><author><name></name></author><summary type="html">1.2 Introduction - Tensorflow-Copy1</summary></entry><entry><title type="html">Deep CNN Models!</title><link href="http://localhost:4000/justttry.github.io/Deep-Convolutional-Neural-Networks-Copy1/" rel="alternate" type="text/html" title="Deep CNN Models!" /><published>2017-05-05T00:00:00+08:00</published><updated>2017-05-05T00:00:00+08:00</updated><id>http://localhost:4000/justttry.github.io/Deep-Convolutional-Neural-Networks-Copy1</id><content type="html" xml:base="http://localhost:4000/justttry.github.io/Deep-Convolutional-Neural-Networks-Copy1/">&lt;h1 id=&quot;deep-cnn-models&quot;&gt;Deep CNN Models&lt;/h1&gt;
-
-&lt;p&gt;Constructing and training your own ConvNet from scratch can be Hard and a long task.&lt;/p&gt;
-
-&lt;p&gt;A common trick used in Deep Learning is to use a &lt;strong&gt;pre-trained&lt;/strong&gt; model and finetune it to the specific data it will be used for.&lt;/p&gt;
-
-&lt;h2 id=&quot;famous-models-with-keras&quot;&gt;Famous Models with Keras&lt;/h2&gt;
-
-&lt;p&gt;This notebook contains code and reference for the following Keras models (gathered from &lt;a href=&quot;&quot;&gt;https://github.com/fchollet/keras/tree/master/keras/applications&lt;/a&gt;)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;VGG16&lt;/li&gt;
-  &lt;li&gt;VGG19&lt;/li&gt;
-  &lt;li&gt;ResNet50&lt;/li&gt;
-  &lt;li&gt;Inception v3&lt;/li&gt;
-  &lt;li&gt;Xception&lt;/li&gt;
-  &lt;li&gt;… more to come&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1409.1556&quot;&gt;Very Deep Convolutional Networks for Large-Scale Image Recognition&lt;/a&gt; - please cite this paper if you use the VGG models in your work.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1512.03385&quot;&gt;Deep Residual Learning for Image Recognition&lt;/a&gt; - please cite this paper if you use the ResNet model in your work.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://arxiv.org/abs/1512.00567&quot;&gt;Rethinking the Inception Architecture for Computer Vision&lt;/a&gt; - please cite this paper if you use the Inception v3 model in your work.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;All architectures are compatible with both TensorFlow and Theano, and upon instantiation the models will be built according to the image dimension ordering set in your Keras configuration file at &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.keras/keras.json&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;For instance, if you have set &lt;code class=&quot;highlighter-rouge&quot;&gt;image_data_format=&quot;channels_last&quot;&lt;/code&gt;, then any model loaded from this repository will get built according to the TensorFlow dimension ordering convention, “Width-Height-Depth”.&lt;/p&gt;
-
-&lt;h1 id=&quot;vgg16&quot;&gt;VGG16&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/vgg16.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;vgg19&quot;&gt;VGG19&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/vgg19.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;kerasapplications&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;keras.applications&lt;/code&gt;&lt;/h1&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.applications&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VGG16&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.applications.imagenet_utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprocess_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decode_predictions&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Using TensorFlow backend.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# -- Jupyter/IPython way to see documentation&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# please focus on parameters (e.g. include top)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;VGG16&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;??&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;VGG16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Help on function VGG16 in module keras.applications.vgg16:
-
-VGG16(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
-    Instantiates the VGG16 architecture.
-    
-    Optionally loads weights pre-trained
-    on ImageNet. Note that when using TensorFlow,
-    for best performance you should set
-    `image_data_format=&quot;channels_last&quot;` in your Keras config
-    at ~/.keras/keras.json.
-    
-    The model and the weights are compatible with both
-    TensorFlow and Theano. The data format
-    convention used by the model is the one
-    specified in your Keras config file.
-    
-    # Arguments
-        include_top: whether to include the 3 fully-connected
-            layers at the top of the network.
-        weights: one of `None` (random initialization)
-            or &quot;imagenet&quot; (pre-training on ImageNet).
-        input_tensor: optional Keras tensor (i.e. output of `layers.Input()`)
-            to use as image input for the model.
-        input_shape: optional shape tuple, only to be specified
-            if `include_top` is False (otherwise the input shape
-            has to be `(224, 224, 3)` (with `channels_last` data format)
-            or `(3, 224, 244)` (with `channels_first` data format).
-            It should have exactly 3 inputs channels,
-            and width and height should be no smaller than 48.
-            E.g. `(200, 200, 3)` would be one valid value.
-        pooling: Optional pooling mode for feature extraction
-            when `include_top` is `False`.
-            - `None` means that the output of the model will be
-                the 4D tensor output of the
-                last convolutional layer.
-            - `avg` means that global average pooling
-                will be applied to the output of the
-                last convolutional layer, and thus
-                the output of the model will be a 2D tensor.
-            - `max` means that global max pooling will
-                be applied.
-        classes: optional number of classes to classify images
-            into, only to be specified if `include_top` is True, and
-            if no `weights` argument is specified.
-    
-    # Returns
-        A Keras model instance.
-    
-    # Raises
-        ValueError: in case of invalid argument for `weights`,
-            or invalid input shape.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;vgg16&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VGG16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include_top&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'imagenet'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Downloading data from https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5
-
-
-
----------------------------------------------------------------------------
-
-Exception                                 Traceback (most recent call last)
-
-&amp;lt;ipython-input-4-622c1ff23a67&amp;gt; in &amp;lt;module&amp;gt;()
-----&amp;gt; 1 vgg16 = VGG16(include_top=True, weights='imagenet')
-
-
-/home/z/anaconda2/lib/python2.7/site-packages/keras/applications/vgg16.pyc in VGG16(include_top, weights, input_tensor, input_shape, pooling, classes)
-    162             weights_path = get_file('vgg16_weights_tf_dim_ordering_tf_kernels.h5',
-    163                                     WEIGHTS_PATH,
---&amp;gt; 164                                     cache_subdir='models')
-    165         else:
-    166             weights_path = get_file('vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5',
-
-
-/home/z/anaconda2/lib/python2.7/site-packages/keras/utils/data_utils.pyc in get_file(fname, origin, untar, md5_hash, file_hash, cache_subdir, hash_algorithm, extract, archive_format, cache_dir)
-    201                             functools.partial(dl_progress, progbar=progbar))
-    202             except URLError as e:
---&amp;gt; 203                 raise Exception(error_msg.format(origin, e.errno, e.reason))
-    204             except HTTPError as e:
-    205                 raise Exception(error_msg.format(origin, e.code, e.msg))
-
-
-Exception: URL fetch failure on https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5: None -- [Errno 110] Connection timed out
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.utils.vis_utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plot_model&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;IPython.display&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plot_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to_file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vgg16.png&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show_shapes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'vgg16.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;If you’re wondering &lt;strong&gt;where&lt;/strong&gt; this &lt;code class=&quot;highlighter-rouge&quot;&gt;HDF5&lt;/code&gt; files with weights is stored, please take a look at &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.keras/models/&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;handson-vgg16---pre-trained-weights&quot;&gt;HandsOn VGG16 - Pre-trained Weights&lt;/h4&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;IMAGENET_FOLDER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'imgs/imagenet'&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;#in the repo&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imgs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imagenet&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apricot_565.jpeg  apricot_787.jpeg	strawberry_1174.jpeg
-apricot_696.jpeg  strawberry_1157.jpeg	strawberry_1189.jpeg
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/strawberry_1157.jpeg&quot; /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.preprocessing&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;img_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IMAGENET_FOLDER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'strawberry_1157.jpeg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_to_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expand_dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprocess_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Input image shape:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vgg16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Predicted:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decode_predictions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;('Input image shape:', (1, 224, 224, 3))
-
-
-
----------------------------------------------------------------------------
-
-NameError                                 Traceback (most recent call last)
-
-&amp;lt;ipython-input-7-49458049ff08&amp;gt; in &amp;lt;module&amp;gt;()
-      9 print('Input image shape:', x.shape)
-     10 
----&amp;gt; 11 preds = vgg16.predict(x)
-     12 print('Predicted:', decode_predictions(preds))
-
-
-NameError: name 'vgg16' is not defined
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/apricot_696.jpeg&quot; /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;img_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IMAGENET_FOLDER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'apricot_696.jpeg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_to_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expand_dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprocess_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Input image shape:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vgg16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Predicted:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decode_predictions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Input image shape: (1, 224, 224, 3)
-Predicted: [[('n07747607', 'orange', 0.87526792), ('n07749582', 'lemon', 0.03620464), ('n07717556', 'butternut_squash', 0.021843448), ('n03937543', 'pill_bottle', 0.0126132), ('n03942813', 'ping-pong_ball', 0.0054204506)]]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/apricot_565.jpeg&quot; /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;img_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IMAGENET_FOLDER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'apricot_565.jpeg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;224&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img_to_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expand_dims&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preprocess_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Input image shape:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vgg16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Predicted:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decode_predictions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Input image shape: (1, 224, 224, 3)
-Predicted: [[('n07718472', 'cucumber', 0.29338178), ('n07716358', 'zucchini', 0.2383192), ('n04596742', 'wok', 0.042132568), ('n07716906', 'spaghetti_squash', 0.038422), ('n07711569', 'mashed_potato', 0.036552209)]]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;hands-on&quot;&gt;Hands On:&lt;/h1&gt;
-
-&lt;h3 id=&quot;try-to-do-the-same-with-vgg19-model&quot;&gt;Try to do the same with VGG19 Model&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# from keras.applications import VGG19&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;residual-networks&quot;&gt;Residual Networks&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/resnet_bb.png&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;resnet-50&quot;&gt;ResNet 50&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://justttry.github.io/images/resnet34.png&quot; /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;## from keras.applications import ...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Deep CNN Models</summary></entry></feed>
+&lt;/html&gt;</content><author><name></name></author><summary type="html">1.2 Introduction - Tensorflow-Copy1</summary></entry></feed>

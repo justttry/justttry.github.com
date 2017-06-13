@@ -1,0 +1,280 @@
+
+<h1 id="1安装java">1.安装JAVA</h1>
+
+<h2 id="a安装过程省略">(a)安装过程省略</h2>
+<p>过程参考<a href="https://www.tutorialspoint.com/hive/hive_installation.htm">这里</a>, 版本略旧。</p>
+
+<h2 id="b查看安装版本">(b)查看安装版本</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span>java –version
+    
+    java version <span class="s2">"1.8.0_131"</span>
+    Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.8.0_131-b11<span class="o">)</span>
+    Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.131-b11, mixed mode
+</code></pre>
+</div>
+
+<h1 id="2安装hadoop">2.安装HADOOP</h1>
+
+<h2 id="a安装过程省略-1">(a)安装过程省略</h2>
+
+<h2 id="b查看安装版本-1">(b)查看安装版本</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span>hadoop version
+    
+    Hadoop 2.8.0
+    Subversion https://git-wip-us.apache.org/repos/asf/hadoop.git -r 91f2b7a13d1e97be65db92ddabc627cc29ac0009
+    Compiled by jdu on 2017-03-17T04:12Z
+    Compiled with protoc 2.5.0
+    From <span class="nb">source </span>with checksum 60125541c2b3e266cbf3becc5bda666
+    This <span class="nb">command </span>was run using /home/ubuntu/Download/hadoop-2.8.0/share/hadoop/common/hadoop-common-2.8.0.jar
+</code></pre>
+</div>
+
+<h2 id="c-启动yarn集群">(c) 启动YARN集群</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ $HADOOP_HOME</span>/sbin/start-dfs.sh
+    <span class="nv">$ $HADOOP_HOME</span>/sbin/start-yarn.sh
+    <span class="nv">$ $HADOOP_HOME</span>/sbin/start-all.sh
+</code></pre>
+</div>
+
+<h1 id="3安装spark">3.安装SPARK</h1>
+
+<h2 id="a下载spark源码省略">(a).下载SPARK源码，省略</h2>
+
+<h2 id="b编译">(b).编译</h2>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span><span class="nb">cd </span>spark-2.1.1/
+    <span class="nv">$ </span>./build/mvn -Phadoop-provided -Pyarn -Phadoop-2.7 -Phive -Phive-thriftserver -DskipTests clean package
+    
+    <span class="o">[</span>INFO] Reactor Summary:
+    <span class="o">[</span>INFO] 
+    <span class="o">[</span>INFO] Spark Project Parent POM ........................... SUCCESS <span class="o">[</span> 13.663 s]
+    <span class="o">[</span>INFO] Spark Project Tags ................................. SUCCESS <span class="o">[</span> 17.955 s]
+    <span class="o">[</span>INFO] Spark Project Sketch ............................... SUCCESS <span class="o">[</span>  6.808 s]
+    <span class="o">[</span>INFO] Spark Project Networking ........................... SUCCESS <span class="o">[</span> 11.276 s]
+    <span class="o">[</span>INFO] Spark Project Shuffle Streaming Service ............ SUCCESS <span class="o">[</span>  5.935 s]
+    <span class="o">[</span>INFO] Spark Project Unsafe ............................... SUCCESS <span class="o">[</span>  9.713 s]
+    <span class="o">[</span>INFO] Spark Project Launcher ............................. SUCCESS <span class="o">[</span> 14.214 s]
+    <span class="o">[</span>INFO] Spark Project Core ................................. SUCCESS <span class="o">[</span>02:28 min]
+    <span class="o">[</span>INFO] Spark Project ML Local Library ..................... SUCCESS <span class="o">[</span> 11.149 s]
+    <span class="o">[</span>INFO] Spark Project GraphX ............................... SUCCESS <span class="o">[</span> 13.799 s]
+    <span class="o">[</span>INFO] Spark Project Streaming ............................ SUCCESS <span class="o">[</span> 32.115 s]
+    <span class="o">[</span>INFO] Spark Project Catalyst ............................. SUCCESS <span class="o">[</span>01:20 min]
+    <span class="o">[</span>INFO] Spark Project SQL .................................. SUCCESS <span class="o">[</span>01:45 min]
+    <span class="o">[</span>INFO] Spark Project ML Library ........................... SUCCESS <span class="o">[</span>01:15 min]
+    <span class="o">[</span>INFO] Spark Project Tools ................................ SUCCESS <span class="o">[</span>  1.924 s]
+    <span class="o">[</span>INFO] Spark Project Hive ................................. SUCCESS <span class="o">[</span>01:00 min]
+    <span class="o">[</span>INFO] Spark Project REPL ................................. SUCCESS <span class="o">[</span>  5.636 s]
+    <span class="o">[</span>INFO] Spark Project YARN Shuffle Service ................. SUCCESS <span class="o">[</span>  8.612 s]
+    <span class="o">[</span>INFO] Spark Project YARN ................................. SUCCESS <span class="o">[</span> 15.541 s]
+    <span class="o">[</span>INFO] Spark Project Hive Thrift Server ................... SUCCESS <span class="o">[</span> 29.356 s]
+    <span class="o">[</span>INFO] Spark Project Assembly ............................. SUCCESS <span class="o">[</span> 10.835 s]
+    <span class="o">[</span>INFO] Spark Project External Flume Sink .................. SUCCESS <span class="o">[</span>  7.775 s]
+    <span class="o">[</span>INFO] Spark Project External Flume ....................... SUCCESS <span class="o">[</span>  9.472 s]
+    <span class="o">[</span>INFO] Spark Project External Flume Assembly .............. SUCCESS <span class="o">[</span>  2.272 s]
+    <span class="o">[</span>INFO] Spark Integration <span class="k">for </span>Kafka 0.8 .................... SUCCESS <span class="o">[</span> 23.306 s]
+    <span class="o">[</span>INFO] Spark Project Examples ............................. SUCCESS <span class="o">[</span> 18.441 s]
+    <span class="o">[</span>INFO] Spark Project External Kafka Assembly .............. SUCCESS <span class="o">[</span>  4.008 s]
+    <span class="o">[</span>INFO] Spark Integration <span class="k">for </span>Kafka 0.10 ................... SUCCESS <span class="o">[</span> 11.553 s]
+    <span class="o">[</span>INFO] Spark Integration <span class="k">for </span>Kafka 0.10 Assembly .......... SUCCESS <span class="o">[</span>  3.748 s]
+    <span class="o">[</span>INFO] Kafka 0.10 Source <span class="k">for </span>Structured Streaming ......... SUCCESS <span class="o">[</span>  9.846 s]
+    <span class="o">[</span>INFO] Spark Project Java 8 Tests ......................... SUCCESS <span class="o">[</span>  5.179 s]
+    <span class="o">[</span>INFO] ------------------------------------------------------------------------
+    <span class="o">[</span>INFO] BUILD SUCCESS
+    <span class="o">[</span>INFO] ------------------------------------------------------------------------
+    <span class="o">[</span>INFO] Total <span class="nb">time</span>: 12:59 min
+    <span class="o">[</span>INFO] Finished at: 2017-06-13T06:11:22+00:00
+    <span class="o">[</span>INFO] Final Memory: 96M/1352M
+    <span class="o">[</span>INFO] ------------------------------------------------------------------------
+</code></pre>
+</div>
+
+<h1 id="4安装hive">4.安装HIVE</h1>
+
+<h2 id="a安装hive">(a).安装HIVE</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> ~
+<span class="gp">$ </span>wget https://archive.apache.org/dist/hive/hive-1.2.1/apache-hive-1.2.1-bin.tar.gz
+<span class="gp">$ </span>tar zxvf apache-hive-1.2.1-bin.tar.gz
+<span class="gp">$ </span>ls
+apache-hive-1.2.1-bin  apache-hive-1.2.1-bin.tar.gz
+<span class="gp">$ </span>sudo mv apache-hive-1.2.1-bin /usr/local/hive
+</code></pre>
+</div>
+<p><span style="color:red">注意版本，根据SPARK的版本选择HIVE版本，否则会出错。</span></p>
+
+<h2 id="b配置hive环境">(b).配置HIVE环境</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span><span class="nb">cd</span> ~
+    <span class="nv">$ </span>vi .bashrc
+    
+    <span class="nb">export </span><span class="nv">HIVE_HOME</span><span class="o">=</span>/usr/local/hive
+    <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HIVE_HOME</span>/bin
+    <span class="nb">export </span><span class="nv">CLASSPATH</span><span class="o">=</span><span class="nv">$CLASSPATH</span>:/usr/local/Hadoop/lib/<span class="k">*</span>:.
+    <span class="nb">export </span><span class="nv">CLASSPATH</span><span class="o">=</span><span class="nv">$CLASSPATH</span>:/usr/local/hive/lib/<span class="k">*</span>:.
+    
+    <span class="nv">$ </span><span class="nb">source</span> .bashrc
+</code></pre>
+</div>
+
+<h2 id="c配置hive">(c).配置HIVE</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$HIVE_HOME</span>/conf
+    <span class="nv">$ </span>cp hive-env.sh.template hive-env.sh
+    <span class="nv">$ </span>vi hive-env.sh
+    
+    <span class="nb">export </span><span class="nv">HADOOP_HOME</span><span class="o">=</span>/usr/local/hadoop
+    
+    <span class="nv">$ </span>cp hive-default.xml.template hive-site.xml
+    <span class="nv">$ </span>vi hive-site.xml
+</code></pre>
+</div>
+<p>配置服务器端口,介绍在<a href="https://cwiki.apache.org/confluence/display/Hive/HiveDerbyServerMode">这里</a></p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &lt;property&gt;
+    &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;
+    &lt;value&gt;jdbc:derby://localhost:1527/metastore_db;create<span class="o">=</span><span class="nb">true</span> &lt;/value&gt;
+    &lt;description&gt;JDBC connect string <span class="k">for </span>a JDBC metastore &lt;/description&gt;
+  &lt;/property&gt;
+  &lt;property&gt;
+    &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;
+    &lt;value&gt;org.apache.derby.jdbc.ClientDriver&lt;/value&gt;
+    &lt;description&gt;Driver class name <span class="k">for </span>a JDBC metastore&lt;/description&gt;
+  &lt;/property&gt;
+</code></pre>
+</div>
+<p>在hive-site.xml配置的开始行添加下列代码，原因在<a href="https://stackoverflow.com/questions/28536340/hive-shell-not-opening-when-i-have-hive-site-xml">这里</a></p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  &lt;property&gt;
+    &lt;name&gt;system:java.io.tmpdir&lt;/name&gt;
+    &lt;value&gt;/tmp/hive/java&lt;/value&gt;
+  &lt;/property&gt;
+  &lt;property&gt;
+    &lt;name&gt;system:user.name&lt;/name&gt;
+    &lt;value&gt;<span class="k">${</span><span class="nv">user</span><span class="p">.name</span><span class="k">}</span>&lt;/value&gt;
+  &lt;/property&gt;
+</code></pre>
+</div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span>vi jpox.properties
+    
+    javax.jdo.PersistenceManagerFactoryClass<span class="o">=</span>org.jpox.PersistenceManagerFactoryImpl
+    org.jpox.autoCreateSchema<span class="o">=</span><span class="nb">false
+    </span>org.jpox.validateTables<span class="o">=</span><span class="nb">false
+    </span>org.jpox.validateColumns<span class="o">=</span><span class="nb">false
+    </span>org.jpox.validateConstraints<span class="o">=</span><span class="nb">false
+    </span>org.jpox.storeManagerType<span class="o">=</span>rdbms
+    org.jpox.autoCreateSchema<span class="o">=</span><span class="nb">true
+    </span>org.jpox.autoStartMechanismMode<span class="o">=</span>checked
+    org.jpox.transactionIsolation<span class="o">=</span>read_committed
+    javax.jdo.option.DetachAllOnCommit<span class="o">=</span><span class="nb">true
+    </span>javax.jdo.option.NontransactionalRead<span class="o">=</span><span class="nb">true
+    </span>javax.jdo.option.ConnectionDriverName<span class="o">=</span>org.apache.derby.jdbc.ClientDriver
+    javax.jdo.option.ConnectionURL<span class="o">=</span>jdbc:derby://localhost:1527/metastore_db;create<span class="o">=</span><span class="nb">true
+    </span>javax.jdo.option.ConnectionUserName<span class="o">=</span>APP
+    javax.jdo.option.ConnectionPassword<span class="o">=</span>mine
+
+</code></pre>
+</div>
+
+<h1 id="5安装derby">5.安装DERBY</h1>
+
+<h2 id="a安装derby">(a).安装DERBY</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span><span class="nb">cd</span> ~
+    <span class="nv">$ </span>wget http://archive.apache.org/dist/db/derby/db-derby-10.10.2.0/db-derby-10.10.2.0-bin.tar.gz
+    版本和HIVE保持一致
+    <span class="nv">$ </span>tar zxvf db-derby-10.10.2.0-bin.tar.gz
+    <span class="nv">$ </span>ls
+    db-derby-10.10.2.0-bin db-derby-10.10.2.0-bin.tar.gz
+    <span class="nv">$ </span>sudo mv db-derby-10.10.2.0-bin /usr/local/derby
+</code></pre>
+</div>
+
+<h2 id="b配置derby环境">(b).配置DERBY环境</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span><span class="nb">cd</span> ~
+    <span class="nv">$ </span>vi .bashrc
+    <span class="nb">export </span><span class="nv">DERBY_HOME</span><span class="o">=</span>/usr/local/derby
+    <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$DERBY_HOME</span>/bin
+    <span class="nb">export </span><span class="nv">CLASSPATH</span><span class="o">=</span><span class="nv">$CLASSPATH</span>:<span class="nv">$DERBY_HOME</span>/lib/derby.jar:<span class="nv">$DERBY_HOME</span>/lib/derbytools.jar
+    <span class="nv">$ </span><span class="nb">source</span> .bashrc
+    <span class="nv">$ </span>cp <span class="nv">$DERBY_HOME</span>/lib/derbyclient.jar <span class="nv">$HIVE_HOME</span>/lib/
+    <span class="nv">$ </span>cp <span class="nv">$DERBY_HOME</span>/lib/derbytools.jar <span class="nv">$HIVE_HOME</span>/lib/
+    <span class="nv">$ </span>mkdir <span class="nv">$DERBY_HOME</span>/data
+</code></pre>
+</div>
+
+<h1 id="6验证hive">6.验证HIVE</h1>
+
+<h2 id="a验证derby">(a).验证DERBY</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span>java org.apache.derby.tools.sysinfo
+    
+    ------------------ Java Information ------------------
+    Java Version:    1.8.0_131
+    Java Vendor:     Oracle Corporation
+    Java home:       /usr/lib/jvm/java-8-oracle/jre
+    Java classpath:  :/usr/local/Hadoop/lib/<span class="k">*</span>:.:/usr/local/hive/lib/calcite-core-1.2.0-incubating.jar::/usr/local/derby/lib/derbytools.jar
+    OS name:         Linux
+    OS architecture: amd64
+    OS version:      4.4.0-1018-aws
+    Java user name:  ubuntu
+    Java user home:  /home/ubuntu
+    Java user dir:   /home/ubuntu
+    java.specification.name: Java Platform API Specification
+    java.specification.version: 1.8
+    java.runtime.version: 1.8.0_131-b11
+    --------- Derby Information --------
+    <span class="o">[</span>/usr/local/hive/lib/derby-10.10.2.0.jar] 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    <span class="o">[</span>/usr/local/hive/lib/derbytools.jar] 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    <span class="o">[</span>/usr/local/hive/lib/derbyclient.jar] 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    <span class="o">[</span>/usr/local/hive/lib/hive-jdbc-1.2.1-standalone.jar] 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    <span class="o">[</span>/usr/local/derby/lib/derby.jar] 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    <span class="o">[</span>/usr/local/derby/lib/derbytools.jar] 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    ------------------------------------------------------
+    ----------------- Locale Information -----------------
+    Current Locale :  <span class="o">[</span>English/United States <span class="o">[</span>en_US]]
+    Found support <span class="k">for </span>locale: <span class="o">[</span>cs]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>de_DE]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>es]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>fr]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>hu]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>it]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>ja_JP]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>ko_KR]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>pl]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>pt_BR]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>ru]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>zh_CN]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    Found support <span class="k">for </span>locale: <span class="o">[</span>zh_TW]
+         version: 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span>
+    ------------------------------------------------------
+    ------------------------------------------------------
+</code></pre>
+</div>
+
+<h2 id="b启动yarn集群">(b).启动YARN集群</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ $HADOOP_HOME</span>/sbin/start-dfs.sh
+    <span class="nv">$ $HADOOP_HOME</span>/sbin/start-yarn.sh
+    <span class="nv">$ $HADOOP_HOME</span>/sbin/start-all.sh
+</code></pre>
+</div>
+
+<h2 id="c启动derby服务器">(c).启动DERBY服务器</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span>startNetworkServer
+    Tue Jun 13 06:51:35 UTC 2017 : Security manager installed using the Basic server security policy.
+    Tue Jun 13 06:51:35 UTC 2017 : Apache Derby Network Server - 10.10.2.0 - <span class="o">(</span>1582446<span class="o">)</span> started and ready to accept connections on port 1527
+
+</code></pre>
+</div>
+
+<h2 id="b启动hive">(b).启动HIVE</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>    <span class="nv">$ </span>hive
+    Logging initialized using configuration <span class="k">in </span>jar:file:/usr/local/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+    hive&gt;
+</code></pre>
+</div>
