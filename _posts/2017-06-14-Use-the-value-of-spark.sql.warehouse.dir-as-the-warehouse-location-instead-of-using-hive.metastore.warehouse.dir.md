@@ -13,3 +13,7 @@ $ rm -rf $HADOOP_HOME/tmp
 $ mkdir -p $HADOOP_HOME/tmp
 $ sudo chmod 750 $HADOOP_HOME/tmp
 ```
+
+```shell
+pyspark --master yarn --deploy-mode client --num-executors 7 --executor-cores 2 --conf spark.sql.warehouse.dir=hdfs://user/hive/warehouse
+```

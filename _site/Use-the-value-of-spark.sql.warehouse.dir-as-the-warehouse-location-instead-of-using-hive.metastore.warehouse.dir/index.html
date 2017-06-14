@@ -13,3 +13,7 @@ spark.sql.warehouse.dir的默认值为System.getProperty("user.dir")/spark-wareh
 <span class="gp">$ </span>sudo chmod 750 <span class="nv">$HADOOP_HOME</span>/tmp
 </code></pre>
 </div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>pyspark --master yarn --deploy-mode client --num-executors 7 --executor-cores 2 --conf spark.sql.warehouse.dir<span class="o">=</span>hdfs://user/hive/warehouse
+</code></pre>
+</div>
