@@ -50,6 +50,23 @@
   
     <article class="post">
 
+      <h1><a href="/justttry.github.io/Use-the-value-of-spark.sql.warehouse.dir-as-the-warehouse-location-instead-of-using-hive.metastore.warehouse.dir/">Use the value of spark.sql.warehouse.dir as the warehouse location instead of using hive.metastore.warehouse.dir</a></h1>
+
+      <div class="entry">
+        
+<p>坑的介绍在<a href="https://issues.apache.org/jira/browse/SPARK-15034">这里</a></p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>从spark2.0开始，spark不再加载‘hive-site.xml<span class="s1">'中的设置，也就是说，hive.metastore.warehouse.dir的设置无效。
+spark.sql.warehouse.dir的默认值为System.getProperty("user.dir")/spark-warehouse，需要在spark的配置文件core-site.xml中设置
+</span></code></pre>
+</div>
+
+      </div>
+
+      <a href="/justttry.github.io/Use-the-value-of-spark.sql.warehouse.dir-as-the-warehouse-location-instead-of-using-hive.metastore.warehouse.dir/" class="read-more">Read More</a>
+    </article>
+  
+    <article class="post">
+
       <h1><a href="/justttry.github.io/HIVE%E5%AE%89%E8%A3%85/">Hive安装</a></h1>
 
       <div class="entry">
