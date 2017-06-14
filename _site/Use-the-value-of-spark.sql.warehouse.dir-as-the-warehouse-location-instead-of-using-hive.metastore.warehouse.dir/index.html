@@ -4,3 +4,12 @@
 spark.sql.warehouse.dir的默认值为System.getProperty("user.dir")/spark-warehouse，需要在spark的配置文件core-site.xml中设置
 </span></code></pre>
 </div>
+
+<p><a href="https://stackoverflow.com/questions/26545524/there-are-0-datanodes-running-and-no-nodes-are-excluded-in-this-operation">这里</a>还有一个坑,
+遇到这种问题时需要清空$HADOOP_HOME/tmp里面的东西</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rm -rf <span class="nv">$HADOOP_HOME</span>/tmp
+<span class="gp">$ </span>mkdir -p <span class="nv">$HADOOP_HOME</span>/tmp
+<span class="gp">$ </span>sudo chmod 750 <span class="nv">$HADOOP_HOME</span>/tmp
+</code></pre>
+</div>
