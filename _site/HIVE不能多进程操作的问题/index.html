@@ -1,0 +1,158 @@
+
+<p>笔者目前遇到一个问题，当开启两个ipython进程的时候会遇到下列错误</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>Failed to start database <span class="s1">'metastore_db'</span> with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader<span class="nv">$$</span>anon<span class="nv">$1</span>@13015ec0, see the next exception <span class="k">for </span>details.
+org.datanucleus.exceptions.NucleusDataStoreException: Failed to start database <span class="s1">'metastore_db'</span> with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader<span class="nv">$$</span>anon<span class="nv">$1</span>@13015ec0, see the next exception <span class="k">for </span>details.
+at org.datanucleus.store.rdbms.ConnectionFactoryImpl<span class="nv">$ManagedConnectionImpl</span>.getConnection<span class="o">(</span>ConnectionFactoryImpl.java:516<span class="o">)</span>
+at org.datanucleus.store.rdbms.RDBMSStoreManager.&lt;init&gt;<span class="o">(</span>RDBMSStoreManager.java:298<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0<span class="o">(</span>Native Method<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance<span class="o">(</span>NativeConstructorAccessorImpl.java:57<span class="o">)</span>
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance<span class="o">(</span>DelegatingConstructorAccessorImpl.java:45<span class="o">)</span>
+at java.lang.reflect.Constructor.newInstance<span class="o">(</span>Constructor.java:526<span class="o">)</span>
+at org.datanucleus.plugin.NonManagedPluginRegistry.createExecutableExtension<span class="o">(</span>NonManagedPluginRegistry.java:631<span class="o">)</span>
+at org.datanucleus.plugin.PluginManager.createExecutableExtension<span class="o">(</span>PluginManager.java:301<span class="o">)</span>
+at org.datanucleus.NucleusContext.createStoreManagerForProperties<span class="o">(</span>NucleusContext.java:1187<span class="o">)</span>
+at org.datanucleus.NucleusContext.initialise<span class="o">(</span>NucleusContext.java:356<span class="o">)</span>
+at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.freezeConfiguration<span class="o">(</span>JDOPersistenceManagerFactory.java:775<span class="o">)</span>
+at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.createPersistenceManagerFactory<span class="o">(</span>JDOPersistenceManagerFactory.java:333<span class="o">)</span>
+at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.getPersistenceManagerFactory<span class="o">(</span>JDOPersistenceManagerFactory.java:202<span class="o">)</span>
+at sun.reflect.NativeMethodAccessorImpl.invoke0<span class="o">(</span>Native Method<span class="o">)</span>
+at sun.reflect.NativeMethodAccessorImpl.invoke<span class="o">(</span>NativeMethodAccessorImpl.java:57<span class="o">)</span>
+at sun.reflect.DelegatingMethodAccessorImpl.invoke<span class="o">(</span>DelegatingMethodAccessorImpl.java:43<span class="o">)</span>
+at java.lang.reflect.Method.invoke<span class="o">(</span>Method.java:606<span class="o">)</span>
+at javax.jdo.JDOHelper<span class="nv">$16</span>.run<span class="o">(</span>JDOHelper.java:1965<span class="o">)</span>
+at java.security.AccessController.doPrivileged<span class="o">(</span>Native Method<span class="o">)</span>
+at javax.jdo.JDOHelper.invoke<span class="o">(</span>JDOHelper.java:1960<span class="o">)</span>
+at javax.jdo.JDOHelper.invokeGetPersistenceManagerFactoryOnImplementation<span class="o">(</span>JDOHelper.java:1166<span class="o">)</span>
+at javax.jdo.JDOHelper.getPersistenceManagerFactory<span class="o">(</span>JDOHelper.java:808<span class="o">)</span>
+at javax.jdo.JDOHelper.getPersistenceManagerFactory<span class="o">(</span>JDOHelper.java:701<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.ObjectStore.getPMF<span class="o">(</span>ObjectStore.java:365<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.ObjectStore.getPersistenceManager<span class="o">(</span>ObjectStore.java:394<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.ObjectStore.initialize<span class="o">(</span>ObjectStore.java:291<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.ObjectStore.setConf<span class="o">(</span>ObjectStore.java:258<span class="o">)</span>
+at org.apache.hadoop.util.ReflectionUtils.setConf<span class="o">(</span>ReflectionUtils.java:73<span class="o">)</span>
+at org.apache.hadoop.util.ReflectionUtils.newInstance<span class="o">(</span>ReflectionUtils.java:133<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.RawStoreProxy.&lt;init&gt;<span class="o">(</span>RawStoreProxy.java:57<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.RawStoreProxy.getProxy<span class="o">(</span>RawStoreProxy.java:66<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.HiveMetaStore<span class="nv">$HMSHandler</span>.newRawStore<span class="o">(</span>HiveMetaStore.java:593<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.HiveMetaStore<span class="nv">$HMSHandler</span>.getMS<span class="o">(</span>HiveMetaStore.java:571<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.HiveMetaStore<span class="nv">$HMSHandler</span>.createDefaultDB<span class="o">(</span>HiveMetaStore.java:620<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.HiveMetaStore<span class="nv">$HMSHandler</span>.init<span class="o">(</span>HiveMetaStore.java:461<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.RetryingHMSHandler.&lt;init&gt;<span class="o">(</span>RetryingHMSHandler.java:66<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.RetryingHMSHandler.getProxy<span class="o">(</span>RetryingHMSHandler.java:72<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.HiveMetaStore.newRetryingHMSHandler<span class="o">(</span>HiveMetaStore.java:5762<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.HiveMetaStoreClient.&lt;init&gt;<span class="o">(</span>HiveMetaStoreClient.java:199<span class="o">)</span>
+at org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient.&lt;init&gt;<span class="o">(</span>SessionHiveMetaStoreClient.java:74<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0<span class="o">(</span>Native Method<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance<span class="o">(</span>NativeConstructorAccessorImpl.java:57<span class="o">)</span>
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance<span class="o">(</span>DelegatingConstructorAccessorImpl.java:45<span class="o">)</span>
+at java.lang.reflect.Constructor.newInstance<span class="o">(</span>Constructor.java:526<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.MetaStoreUtils.newInstance<span class="o">(</span>MetaStoreUtils.java:1521<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.&lt;init&gt;<span class="o">(</span>RetryingMetaStoreClient.java:86<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.getProxy<span class="o">(</span>RetryingMetaStoreClient.java:132<span class="o">)</span>
+at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.getProxy<span class="o">(</span>RetryingMetaStoreClient.java:104<span class="o">)</span>
+at org.apache.hadoop.hive.ql.metadata.Hive.createMetaStoreClient<span class="o">(</span>Hive.java:3005<span class="o">)</span>
+at org.apache.hadoop.hive.ql.metadata.Hive.getMSC<span class="o">(</span>Hive.java:3024<span class="o">)</span>
+at org.apache.hadoop.hive.ql.metadata.Hive.getAllDatabases<span class="o">(</span>Hive.java:1234<span class="o">)</span>
+at org.apache.hadoop.hive.ql.metadata.Hive.reloadFunctions<span class="o">(</span>Hive.java:174<span class="o">)</span>
+at org.apache.hadoop.hive.ql.metadata.Hive.&lt;clinit&gt;<span class="o">(</span>Hive.java:166<span class="o">)</span>
+at org.apache.hadoop.hive.ql.session.SessionState.start<span class="o">(</span>SessionState.java:503<span class="o">)</span>
+at org.apache.spark.sql.hive.client.ClientWrapper.&lt;init&gt;<span class="o">(</span>ClientWrapper.scala:171<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0<span class="o">(</span>Native Method<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance<span class="o">(</span>NativeConstructorAccessorImpl.java:57<span class="o">)</span>
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance<span class="o">(</span>DelegatingConstructorAccessorImpl.java:45<span class="o">)</span>
+at java.lang.reflect.Constructor.newInstance<span class="o">(</span>Constructor.java:526<span class="o">)</span>
+at org.apache.spark.sql.hive.client.IsolatedClientLoader.liftedTree1<span class="nv">$1</span><span class="o">(</span>IsolatedClientLoader.scala:183<span class="o">)</span>
+at org.apache.spark.sql.hive.client.IsolatedClientLoader.&lt;init&gt;<span class="o">(</span>IsolatedClientLoader.scala:179<span class="o">)</span>
+at org.apache.spark.sql.hive.HiveContext.metadataHive<span class="nv">$lzycompute</span><span class="o">(</span>HiveContext.scala:227<span class="o">)</span>
+at org.apache.spark.sql.hive.HiveContext.metadataHive<span class="o">(</span>HiveContext.scala:186<span class="o">)</span>
+at org.apache.spark.sql.hive.HiveContext.setConf<span class="o">(</span>HiveContext.scala:393<span class="o">)</span>
+at org.apache.spark.sql.hive.HiveContext.defaultOverrides<span class="o">(</span>HiveContext.scala:175<span class="o">)</span>
+at org.apache.spark.sql.hive.HiveContext.&lt;init&gt;<span class="o">(</span>HiveContext.scala:178<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0<span class="o">(</span>Native Method<span class="o">)</span>
+at sun.reflect.NativeConstructorAccessorImpl.newInstance<span class="o">(</span>NativeConstructorAccessorImpl.java:57<span class="o">)</span>
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance<span class="o">(</span>DelegatingConstructorAccessorImpl.java:45<span class="o">)</span>
+at java.lang.reflect.Constructor.newInstance<span class="o">(</span>Constructor.java:526<span class="o">)</span>
+at py4j.reflection.MethodInvoker.invoke<span class="o">(</span>MethodInvoker.java:234<span class="o">)</span>
+at py4j.reflection.ReflectionEngine.invoke<span class="o">(</span>ReflectionEngine.java:379<span class="o">)</span>
+at py4j.Gateway.invoke<span class="o">(</span>Gateway.java:214<span class="o">)</span>
+at py4j.commands.ConstructorCommand.invokeConstructor<span class="o">(</span>ConstructorCommand.java:79<span class="o">)</span>
+at py4j.commands.ConstructorCommand.execute<span class="o">(</span>ConstructorCommand.java:68<span class="o">)</span>
+at py4j.GatewayConnection.run<span class="o">(</span>GatewayConnection.java:207<span class="o">)</span>
+at java.lang.Thread.run<span class="o">(</span>Thread.java:745<span class="o">)</span>
+Caused by: java.sql.SQLException: Failed to start database <span class="s1">'metastore_db'</span> with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader<span class="nv">$$</span>anon<span class="nv">$1</span>@13015ec0, see the next exception <span class="k">for </span>details.
+at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.Util.newEmbedSQLException<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.Util.seeNextException<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.EmbedConnection.&lt;init&gt;<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.EmbedConnection40.&lt;init&gt;<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.jdbc.Driver40.getNewEmbedConnection<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.jdbc.InternalDriver.connect<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.jdbc.Driver20.connect<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.jdbc.AutoloadedDriver.connect<span class="o">(</span>Unknown Source<span class="o">)</span>
+at java.sql.DriverManager.getConnection<span class="o">(</span>DriverManager.java:571<span class="o">)</span>
+at java.sql.DriverManager.getConnection<span class="o">(</span>DriverManager.java:187<span class="o">)</span>
+at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection<span class="o">(</span>DriverManagerConnectionFactory.java:78<span class="o">)</span>
+at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject<span class="o">(</span>PoolableConnectionFactory.java:582<span class="o">)</span>
+at org.apache.commons.pool.impl.GenericObjectPool.borrowObject<span class="o">(</span>GenericObjectPool.java:1148<span class="o">)</span>
+at org.apache.commons.dbcp.PoolingDataSource.getConnection<span class="o">(</span>PoolingDataSource.java:106<span class="o">)</span>
+at org.datanucleus.store.rdbms.ConnectionFactoryImpl<span class="nv">$ManagedConnectionImpl</span>.getConnection<span class="o">(</span>ConnectionFactoryImpl.java:501<span class="o">)</span>
+... 76 more
+Caused by: java.sql.SQLException: Failed to start database <span class="s1">'metastore_db'</span> with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader<span class="nv">$$</span>anon<span class="nv">$1</span>@13015ec0, see the next exception <span class="k">for </span>details.
+at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA<span class="o">(</span>Unknown Source<span class="o">)</span>
+... 93 more
+Caused by: java.sql.SQLException: Another instance of Derby may have already booted the database /home/dmytro/work/shared_store/integration/metastore_db.
+at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.jdbc.Util.generateCsSQLException<span class="o">(</span>Unknown Source<span class="o">)</span>
+... 90 more
+Caused by: ERROR XSDB6: Another instance of Derby may have already booted the database /home/dmytro/work/shared_store/integration/metastore_db.
+at org.apache.derby.iapi.error.StandardException.newException<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.privGetJBMSLockOnDB<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.run<span class="o">(</span>Unknown Source<span class="o">)</span>
+at java.security.AccessController.doPrivileged<span class="o">(</span>Native Method<span class="o">)</span>
+at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.getJBMSLockOnDB<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.TopService.bootModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.startModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.store.raw.RawStore.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.TopService.bootModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.startModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.store.access.RAMAccessManager.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.TopService.bootModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.startModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.db.BasicDatabase.bootStore<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.db.BasicDatabase.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.boot<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.TopService.bootModule<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.bootService<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService<span class="o">(</span>Unknown Source<span class="o">)</span>
+at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService<span class="o">(</span>Unknown Source<span class="o">)</span>
+... 90 more
+</code></pre>
+</div>
+
+<p>很显然，提示’metastore_db’冲突。
+解决方法：</p>
+
+<p>1.消除’metastore_db’锁死问题</p>
+
+<p>2.不同进程指向不同的’metastore_db’路径</p>
+
+<p><a href="https://issues.apache.org/jira/browse/SPARK-10872">这里</a>是方法一:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>删除文件夹metastore_db中的dbex.lck文件即可
+</code></pre>
+</div>
+
+<p>对于方法二，目前还没有找到解决途径，2.0.0以后的spark版本已经启用了hive-site.xml设置。</p>
