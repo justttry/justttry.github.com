@@ -1,0 +1,23 @@
+
+<p>转来的<a href="http://outofmemory.cn/c/java-outOfMemoryError">文章</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>java.lang.OutOfMemoryError这个错误我相信大部分开发人员都有遇到过，产生该错误的原因大都出于以下原因：JVM内存过小、程序不严密，产生了过多的垃圾。
+
+导致OutOfMemoryError异常的常见原因有以下几种：
+
+1.内存中加载的数据量过于庞大，如一次从数据库取出过多数据；
+2.集合类中有对对象的引用，使用完后未清空，使得JVM不能回收；
+3.代码中存在死循环或循环产生过多重复的对象实体；
+4.使用的第三方软件中的BUG；
+5.启动参数内存值设定的过小；
+
+此错误常见的错误提示：
+
+1.tomcat:java.lang.OutOfMemoryError: PermGen space
+2.tomcat:java.lang.OutOfMemoryError: Java heap space
+3.weblogic:Root cause of ServletException java.lang.OutOfMemoryError
+4.resin:java.lang.OutOfMemoryError
+5.java:java.lang.OutOfMemoryError
+解决java.lang.OutOfMemoryError的方法有如下几种：
+</code></pre>
+</div>
