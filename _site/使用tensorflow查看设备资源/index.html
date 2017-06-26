@@ -1,0 +1,65 @@
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">sc</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;pyspark.context.SparkContext at 0x7fd8f4a766d0&gt;
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">tensorflow.python.client</span> <span class="kn">import</span> <span class="n">device_lib</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">dl</span> <span class="o">=</span> <span class="n">device_lib</span><span class="o">.</span><span class="n">list_local_devices</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">dl</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[name: "/cpu:0"
+ device_type: "CPU"
+ memory_limit: 268435456
+ locality {
+ }
+ incarnation: 18352378554694701109, name: "/gpu:0"
+ device_type: "GPU"
+ memory_limit: 145358848
+ locality {
+   bus_id: 1
+ }
+ incarnation: 3909662228664244928
+ physical_device_desc: "device: 0, name: Tesla K80, pci bus id: 0000:00:1e.0"]
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">cpu</span> <span class="o">=</span> <span class="n">dl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">print</span> <span class="n">cpu</span><span class="o">.</span><span class="n">name</span>
+<span class="k">print</span> <span class="n">cpu</span><span class="o">.</span><span class="n">device_type</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/cpu:0
+CPU
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">gpu</span> <span class="o">=</span> <span class="n">dl</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">print</span> <span class="n">gpu</span><span class="o">.</span><span class="n">name</span>
+<span class="k">print</span> <span class="n">gpu</span><span class="o">.</span><span class="n">device_type</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/gpu:0
+GPU
+</code></pre>
+</div>
+
